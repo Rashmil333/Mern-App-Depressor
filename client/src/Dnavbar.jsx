@@ -14,6 +14,17 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MenuIcon from '@material-ui/icons/Menu';
 import MailIcon from '@material-ui/icons/Mail';
 import {useSelector} from "react-redux";
+import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
+import PersonIcon from '@material-ui/icons/Person';
+import ChatIcon from '@material-ui/icons/Chat';
+import HealingIcon from '@material-ui/icons/Healing';
+import SettingsIcon from '@material-ui/icons/Settings';
+import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
+import LocalMallIcon from '@material-ui/icons/LocalMall';
+import AdbIcon from '@mui/icons-material/Adb';
+import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
+import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Badge from '@material-ui/core/Badge';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import {
@@ -43,6 +54,10 @@ const useStyles = makeStyles({
   fullList: {
     width: 'auto',
   },
+  paper: {
+    background: '#1e222d',
+    color: 'white'
+  }
 });
 
 const Dnavbar = (props) => {
@@ -73,10 +88,86 @@ const Dnavbar = (props) => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {login_status==1?
+      <List style={{backgroundColor:'#1c2a35'}}>
+     
+          {login_status==1? <>
+          <NavItem>
+                 <NavLink href="/">
+             
+               <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src={profile_photo}/>
+               <p style={{margin:'10px 0px 10px 5px'}}>{email}</p></NavLink>
+            
+          </NavItem>
+           <Divider class="divider"/></>
+          :null}
+          
+          
+         <NavItem class="navitem">
+           
+              <NavLink href="/profile">
+
+              <button className="btn_nav"  value="/profile" onClick={auth}>
+                <PersonIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
+                Profile{cat=="http://testmern52.herokuapp.com/profile"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}  </button></NavLink>
+        </NavItem>
+             <Divider class="divider"/>
+            <NavItem>
+              <NavLink href="/chat"><button className="btn_nav" value="/chat" onClick={auth}>
+               <ChatIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
+              Chat{cat=="http://testmern52.herokuapp.com/chat"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
+            </NavItem> <Divider class="divider"/>
+            <NavItem>
+              <NavLink href="/selfhealing"><button className="btn_nav" value="/selfhealing" onClick={auth}>
+               <HealingIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
+              SelfHealing{cat=="http://testmern52.herokuapp.com/selfhealing"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
+            </NavItem> <Divider class="divider"/>
+            <NavItem>
+              <NavLink href="/reliever"><button className="btn_nav" value="/reliever" onClick={auth}>
+               <LocalHospitalIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
+              Reliever{cat=="http://testmern52.herokuapp.com/reliever"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
+            </NavItem> <Divider class="divider"/>
+            <NavItem>
+              <NavLink href="/contribution"><button className="btn_nav" value="/contribution"onClick={auth}>
+                <CardGiftcardIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
+              Contribution{cat=="http://testmern52.herokuapp.com/contribution"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
+            </NavItem> <Divider class="divider"/>
+            <NavItem>
+              <NavLink href="/story"><button className="btn_nav" value="/story" onClick={auth}>
+                <HistoryEduIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
+              Story{cat=="http://testmern52.herokuapp.com/story"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
+            </NavItem> <Divider class="divider"/>
+            <NavItem>
+              <NavLink href="/buy"><button className="btn_nav" value="/buy" onClick={auth}>
+               <LocalMallIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
+              Buy{cat=="http://testmern52.herokuapp.com/buy"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
+            </NavItem> <Divider class="divider"/>
+            <NavItem>
+              <NavLink href="/cart"><button className="btn_nav" value="/cart"onClick={auth}>
+               <Badge badgeContent={cart_count+cart_number_item} color="primary">
+        <ShoppingCartIcon value="/cart" onClick={auth} style={{color:'#6b6f7a',marginRight:'10px'}} />
+         Cart
+      </Badge>{cat=="http://testmern52.herokuapp.com/cart"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
+            </NavItem> <Divider class="divider"/>
              <NavItem>
-             <NavLink href="/logout" onClick={postdata}><button className="btn btn-primary">Logout</button></NavLink>
+              <NavLink href="/setting"><button className="btn_nav" value="/setting"onClick={auth}>
+               <SettingsIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
+              Setting{cat=="http://testmern52.herokuapp.com/setting"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
+            </NavItem> <Divider class="divider"/>
+           
+              {login_status==1?
+             <NavItem>
+             <NavLink href="/logout" onClick={postdata}><button className="btn btn-primary">
+              <LogoutIcon style={{color:'white',marginRight:'10px'}} />
+             Logout</button></NavLink>
             </NavItem>
 
           :<>
@@ -88,57 +179,6 @@ const Dnavbar = (props) => {
             </NavItem>
 
           </>}
-          {login_status==1? <>
-          <NavItem>
-                 <NavLink href="/">
-               <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src={profile_photo}/><p>{email}</p></NavLink>
-            
-          </NavItem> <Divider /></>
-          :null}
-          
-          
-         <NavItem>
-           
-              <NavLink href="/profile"><button className="btn btn-danger" value="/profile" onClick={auth}>Profile{cat=="http://testmern52.herokuapp.com/profile"?
-              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}  </button></NavLink>
-            </NavItem> <Divider />
-            <NavItem>
-              <NavLink href="/chat"><button className="btn btn-danger" value="/chat" onClick={auth}>Chat{cat=="http://testmern52.herokuapp.com/chat"?
-              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider />
-            <NavItem>
-              <NavLink href="/selfhealing"><button className="btn btn-danger" value="/selfhealing" onClick={auth}>SelfHealing{cat=="http://testmern52.herokuapp.com/selfhealing"?
-              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider />
-            <NavItem>
-              <NavLink href="/reliever"><button className="btn btn-danger" value="/reliever" onClick={auth}>Reliever{cat=="http://testmern52.herokuapp.com/reliever"?
-              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider />
-            <NavItem>
-              <NavLink href="/contribution"><button className="btn btn-danger" value="/contribution"onClick={auth}>Contribution{cat=="http://testmern52.herokuapp.com/contribution"?
-              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider />
-            <NavItem>
-              <NavLink href="/story"><button className="btn btn-danger" value="/story" onClick={auth}>Story{cat=="http://testmern52.herokuapp.com/story"?
-              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider />
-            <NavItem>
-              <NavLink href="/buy"><button className="btn btn-danger" value="/buy" onClick={auth}>Buy{cat=="http://testmern52.herokuapp.com/buy"?
-              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider />
-            <NavItem>
-              <NavLink href="/cart"><button className="btn btn-danger" value="/cart"onClick={auth}>
-               <Badge badgeContent={cart_count+cart_number_item} color="primary">
-        <ShoppingCartIcon value="/cart" onClick={auth}/>
-      </Badge>{cat=="http://testmern52.herokuapp.com/cart"?
-              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider />
-             <NavItem>
-              <NavLink href="/setting"><button className="btn btn-danger" value="/setting"onClick={auth}>Setting{cat=="http://testmern52.herokuapp.com/setting"?
-              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider />
-           
-           
 
           
       </List>
@@ -149,6 +189,7 @@ const Dnavbar = (props) => {
   const [userdata,setuserdata]=useState({
   firstname:"user"
   });
+   const styles = useStyles();
   const history=useHistory();
   const [chat,setchat]=useState(false);
   const [signin,setsignin]=useState(true);
@@ -192,12 +233,12 @@ const Dnavbar = (props) => {
     console.log(data);
     setuserdata(data);
     console.log(data);
-    setemail(data.email);
+    setemail(data.firstname);
     setloginstatus(data.login_status);
     if(data.profile_status==1){
        console.log(data.profile[0].img);
     setprofile_photo(data.profile[0].img);
-    setemail(data.email)
+    setemail(data.firstname)
     setcart_count(data.cart.length);
     }
    
@@ -403,7 +444,7 @@ const Dnavbar = (props) => {
           {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}><MenuIcon style={{color:'pink'}}/></Button>
-          <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+          <Drawer   classes={{ paper: styles.paper }} anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
           </Drawer>
         </React.Fragment>
@@ -437,5 +478,5 @@ const Dnavbar = (props) => {
 
 export default Dnavbar;
 
-// heroku git:remote -a testmern52
+// heroku git:remote -a testmern53
 // git push heroku master

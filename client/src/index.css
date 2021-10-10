@@ -8,7 +8,7 @@ body {
 }
 *{ 
 	font-family: 'Georama', sans-serif;
-	font-weight: bold;
+	font-weight: bold; 
 }
 ::selection{
 	background-color: black;
@@ -1605,3 +1605,20 @@ background-color: #ffa706;
 
 }
 
+.divider{
+	margin-top: 0;
+	background-color: dimgrey;
+}
+.btn_nav{
+	outline: none;
+	border: none;
+	background-color: #363c4a;
+	color: white;
+	width:100%;
+	padding: 10px;
+	border-radius: 9px;
+	text-align: left;
+}
+.btn_nav:hover{
+	background-color:#fe4a55;
+}
