@@ -4,8 +4,7 @@ import Dcommon from "./Dcommon";
 import Dlive from "./Dlive";
 import Dfooter from "./Dfooter";
 import {useSelector} from "react-redux";
-
-
+import b3 from "./images/b3.jpg"
 
 const Dhome=()=>{
 
@@ -106,7 +105,10 @@ const Dhome=()=>{
 		</div>
 
 		:
-		<><Dcommon img="https://i.ibb.co/xHcKk79/output-onlinegiftools-1.gif" text="Depressor" description="It provides family to the alone"/>
+		<>
+		<div class="homediv"  >
+	<Dcommon class="dcommon" img="https://i.ibb.co/xHcKk79/output-onlinegiftools-1.gif" text="Depressor" description="It provides family to the alone"/>
+	</div>
 	<Dlive/>
 	<Dfooter/>
 		</>}

@@ -1,0 +1,174 @@
+@font-face {
+  font-family: "Danger";
+  src: local("Danger"), url("./fonts/Danger.ttf") format("truetype");
+}
+.font-face-Dangertext {
+  font-family: "EuroStyle Normal";
+}
+.blackSky{
+    width:100vw;
+    
+    background:linear-gradient(to bottom,#094b65,black,black);
+}
+.floatyWatertext {
+  color: white;
+  font-family: Danger;
+  margin: 0.625rem 1.25rem 0px 1.25rem;
+  opacity: 0.2;
+  animation: 10s floatytext linear infinite;
+
+}
+@keyframes floatytext {
+    0%{
+        transform: skewY(0deg);
+    }  
+    50%{
+        transform: skewY(2deg);
+    }  
+    100%{
+        transform: skewY(0deg);
+    }
+}
+.analyzetext{
+    color: white;
+    font-family: Danger;
+    margin: 0.625rem 1.25rem 0px 1.25rem;
+    opacity: 0.7;
+    margin-top: 10%;
+
+}
+.flexdiv{
+    display: flex;
+    flex-wrap: wrap;
+}
+.detailtext{
+    text-transform: uppercase;
+    color:white;
+    opacity: 0.7;
+    font-size: 2.875rem;
+    word-spacing: 1 rem;
+    text-align: center;
+    width:300px;
+    float: right;
+    margin-left: 15%;
+    margin-top: 5%;
+    font-weight: bold;
+}
+.detailtext2{
+    text-transform: uppercase;
+    color:white;
+    opacity: 0.7;
+    font-size: 2.875rem;
+    word-spacing: 1 rem;
+    text-align: center;
+    width:300px;
+    float: right;
+    margin-left: 10%;
+    margin-top: 5%;
+    font-weight: bold;
+}
+.importanttext{
+    color:red;
+    font-weight: bold;
+    font-size: 30px;
+}
+.Image{
+   
+}
+@media(max-width:538px){
+    .Image{
+        width:300px;
+        height:300px;
+        margin-left: 10%;
+      
+    }
+ 
+}
+@media(max-width:1159px){
+    .Image{
+        width:250px;
+        height:250px;
+        margin-left: 10%;
+      
+    }
+ 
+}
+@media(max-width:785px){
+    .Image{
+      display: none;
+      
+      
+    }
+    .detailtext{
+        border-bottom: 1px solid white;
+        border-top: 1px solid white;
+    }
+ 
+}
+.whiteSky{
+    width:100vw;
+    height:100vh;
+    background: linear-gradient(to bottom,black,skyblue,white);
+    display: grid;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+}
+.whiteSkydown{
+    width:100vw;
+    height:100vh;
+    background: linear-gradient(to bottom,white,skyblue,white);
+    display: grid;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+}
+.text3{
+    font-family: Danger;
+    color:black;
+    text-align: center;
+
+}
+.floatyimage{
+    border: 1px solid white;
+    box-shadow: 0px 0px 20px skyblue;
+    animation: 10s overflow linear infinite;
+  
+}
+
+@keyframes overflow {
+    0%{
+        box-shadow: 0px 0px 20px white;
+    }
+    50%{
+        box-shadow: 0px 0px 100px skyblue;
+    }
+    100%{
+        box-shadow: 0px 0px 20px white;
+    }
+    
+}
+.lineargrad{
+    width:100%;
+    height:10px;
+ 
+    background: linear-gradient(to bottom,white,white);
+}
+.clownfish{
+    display: grid;
+    place-items: center;
+    animation:5s up linear infinite;
+    transform: rotate(-90deg);
+}
+@keyframes up {
+    0%{
+        transform: translateY(0px) rotate(-90deg) ;
+    }
+    50%{
+        transform: translateY(10px) rotate(-90deg);
+    }
+    100%{
+        transform: translateY(0px) rotate(-90deg);
+    }
+    
+}

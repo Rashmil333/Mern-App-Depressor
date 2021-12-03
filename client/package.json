@@ -11,6 +11,11 @@
     "@material-ui/utils": "^4.11.2",
     "@mui/icons-material": "^5.0.3",
     "@mui/material": "^5.0.3",
+    "@tensorflow-models/coco-ssd": "^2.2.2",
+    "@tensorflow-models/mobilenet": "^2.1.0",
+    "@tensorflow/tfjs-backend-cpu": "^3.11.0",
+    "@tensorflow/tfjs-converter": "^3.11.0",
+    "@tensorflow/tfjs-core": "^3.11.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -27,7 +32,9 @@
     "react-use-websocket": "^2.6.1",
     "reactstrap": "^8.9.0",
     "redux": "^4.1.0",
+    "sentiment": "^5.0.2",
     "socket.io-client": "^4.1.1",
+    "styled-components": "^5.3.3",
     "web-vitals": "^1.1.1"
   },
   "scripts": {

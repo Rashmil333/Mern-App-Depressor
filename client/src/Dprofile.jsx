@@ -7,6 +7,9 @@ import Dprofilesown from "./Dprofilesown";
 import Dprofilecard from "./Dprofilecard";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SearchIcon from '@material-ui/icons/Search';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import PeopleIcon from '@mui/icons-material/People';
+import GroupAddRoundedIcon from '@mui/icons-material/GroupAddRounded';
 const image="https://thumbs.gfycat.com/DependableHeavenlyKentrosaurus-size_restricted.gif";
  
 
@@ -33,6 +36,7 @@ const Dprofile=()=>{
 	const [search_d,setsearch_d]=useState();
 	const [search_r,setsearch_r]=useState();
 	const [search_b,setsearch_b]=useState();
+	const [action,setAction]=useState(true);
 	 const getalldata=async(e)=>{
 
   	settoggle(!toggle);
@@ -263,12 +267,29 @@ console.log(typeof(temma[0]))
 	
 	return(<>
 		<Dnavbar/>
+		<div style={{backgroundColor:'#2a292e',width:'100%',height:'40px',textAlign:'center'}}>
+				<Button onClick={()=>setAction(!action)}>
+				{action==true?
+					<AccountCircleIcon  style={{color:'#737277',fontSize:'25px',marginLeft:'20px',marginTop:'5px'}}/>
+					:
+					<AccountCircleIcon  style={{color:'skyblue',fontSize:'25px',marginLeft:'20px',marginTop:'5px'}}/>
+				}
+				
+			</Button>
+				<Button onClick={()=>setAction(!action)}>
+				{action==false?
+					<GroupAddRoundedIcon style={{color:'#737277',fontSize:'25px',marginLeft:'20px',marginTop:'5px'}}/>
+					:
+					<GroupAddRoundedIcon style={{color:'skyblue',fontSize:'25px',marginLeft:'20px',marginTop:'5px'}}/>
+				}
+					</Button>
+				
+				<br/>
 
-		{refresh==true?<>
-			<img src="https://i.ibb.co/YB2pncx/relax.jpg" style={{width:'100%'}}/>
-
-		</>:null}
-		
+		</div>
+	
+	{action==false?
+		<div>
 		{profile_status==0?<>
 									<div className="container" style={{textAlign:'center',marginTop:'100px'}} id="formshadowdiv">
 			<div className="row">
@@ -316,7 +337,8 @@ console.log(typeof(temma[0]))
 
 
 
-		</>:<div> { profile.map((cvalue)=>{
+		</>:<div> 
+		{ profile.map((cvalue)=>{
 			return(<Dprofilesown name={cvalue.name} email={cvalue.email_id} phone={cvalue.mobile_no}
 			 img={cvalue.img} type={cvalue.category} hobbies={cvalue.hobbies} description={cvalue.description} work={cvalue.work} age={cvalue.age}/>)
 		})}</div>
@@ -326,7 +348,10 @@ console.log(typeof(temma[0]))
 		
 		
 		
-		<div class="input_div">
+	
+		</div>:
+		<>
+				<div class="input_div">
 			<div class="input_main">
 				<input class="input_profile" type="number" placeholder="Search by Mobile Number"  value={search_num} onChange={search}/>
 				<Button><SearchIcon/></Button>
@@ -336,16 +361,17 @@ console.log(typeof(temma[0]))
 		</div>
 		<div className="container" >
 			<div className="row">
+			
 				<Dprofilecard name="Pooja" email="poojasingh333@gmail.com" type="Reliever" img="https://d3b4rd8qvu76va.cloudfront.net/690/aaa29/8eba/4e1a/964a/7a96e13e54a9/large/72012.jpg"/><Button id="text_pink" onClick={getalldata}>Show {toggle==false?"More":"Less"}</Button>
 			 {toggle==true?
 			  <>
 					{depressors.map((cvalue)=>{
 					if(temma.includes(parseInt(cvalue.mobile_no))){
-							return(<Dprofilecard name={cvalue.name} hint={1} email={cvalue.email} type="Reliever" img={cvalue.img} mobile={cvalue.mobile_no}/>)
+							return(<Dprofilecard name={cvalue.name} hint={1} email={cvalue.email} type="Depressor" img={cvalue.img} mobile={cvalue.mobile_no} descript={cvalue.description} hobby={cvalue.hobbies} age={cvalue.age}/>)
 
 					}
 					else{
-						return(<Dprofilecard name={cvalue.name} hint={0} email={cvalue.email} type="Reliever" img={cvalue.img} mobile={cvalue.mobile_no}/>)
+						return(<Dprofilecard name={cvalue.name} hint={0} email={cvalue.email} type="Depressor" img={cvalue.img} mobile={cvalue.mobile_no} descript={cvalue.description} hobby={cvalue.hobbies} age={cvalue.age}/>)
 					}
 				
 				
@@ -353,22 +379,22 @@ console.log(typeof(temma[0]))
 
 				{relievers.map((cvalue)=>{
 					if(temma.includes(parseInt(cvalue.mobile_no))){
-							return(<Dprofilecard name={cvalue.name} hint={1} email={cvalue.email} type="Reliever" img={cvalue.img} mobile={cvalue.mobile_no}/>)
+							return(<Dprofilecard name={cvalue.name} hint={1} email={cvalue.email} type="Reliever" img={cvalue.img} mobile={cvalue.mobile_no} descript={cvalue.description} hobby={cvalue.hobbies} age={cvalue.age}/>)
 
 					}
 					else{
-						return(<Dprofilecard name={cvalue.name} hint={0} email={cvalue.email} type="Reliever" img={cvalue.img} mobile={cvalue.mobile_no}/>)
+						return(<Dprofilecard name={cvalue.name} hint={0} email={cvalue.email} type="Reliever" img={cvalue.img} mobile={cvalue.mobile_no} descript={cvalue.description} hobby={cvalue.hobbies} age={cvalue.age}/>)
 					}
 				
 				
 				})}
 	{both.map((cvalue)=>{
 					if(temma.includes(parseInt(cvalue.mobile_no))){
-							return(<Dprofilecard name={cvalue.name} hint={1} email={cvalue.email} type="Reliever" img={cvalue.img} mobile={cvalue.mobile_no}/>)
+							return(<Dprofilecard name={cvalue.name} hint={1} email={cvalue.email} type="Both" img={cvalue.img} mobile={cvalue.mobile_no} descript={cvalue.description} hobby={cvalue.hobbies} age={cvalue.age}/>)
 
 					}
 					else{
-						return(<Dprofilecard name={cvalue.name} hint={0} email={cvalue.email} type="Reliever" img={cvalue.img} mobile={cvalue.mobile_no}/>)
+						return(<Dprofilecard name={cvalue.name} hint={0} email={cvalue.email} type="Both" img={cvalue.img} mobile={cvalue.mobile_no} descript={cvalue.description} hobby={cvalue.hobbies} age={cvalue.age}/>)
 					}
 				
 				
@@ -380,7 +406,7 @@ console.log(typeof(temma[0]))
 			 })}
 
 			</div>
-		</div>
+		</div></>}
 		<Dfooter/>
 		
 

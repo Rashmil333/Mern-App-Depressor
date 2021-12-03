@@ -5,11 +5,11 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
+import List from '@material-ui/core/List'; 
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import ListItemText from '@material-ui/core/ListItemText'; 
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MenuIcon from '@material-ui/icons/Menu';
 import MailIcon from '@material-ui/icons/Mail';
@@ -26,6 +26,8 @@ import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Badge from '@material-ui/core/Badge';
+import EditIcon from '@mui/icons-material/Edit';
+import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import {
   Collapse,
@@ -88,17 +90,23 @@ const Dnavbar = (props) => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List style={{backgroundColor:'#1c2a35'}}>
+      <List>
      
           {login_status==1? <>
-          <NavItem>
+          <NavItem style={{marginLeft:'43px'}} id='profile'> 
                  <NavLink href="/">
              
-               <img style={{width:'50px',height:'50px',borderRadius:'50%'}} src={profile_photo}/>
-               <p style={{margin:'10px 0px 10px 5px'}}>{email}</p></NavLink>
-            
+               <img style={{width:'5rem',height:'5rem',borderRadius:'50%'}} src={profile_photo}/>
+              <div style={{display:'flex'}}>
+                
+              </div>
+              <div style={{display:'flex'}}>
+               <p style={{margin:'10px 0px 10px 20px',color:'white'}}>{email}</p>
+                <EditIcon style={{color:'white',marginLeft:'10px',marginTop:'9px',fontSize:'20px'}} />
+              </div>
+              </NavLink>
           </NavItem>
-           <Divider class="divider"/></>
+          </>
           :null}
           
           
@@ -111,43 +119,43 @@ const Dnavbar = (props) => {
                 Profile{cat=="http://testmern52.herokuapp.com/profile"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}  </button></NavLink>
         </NavItem>
-             <Divider class="divider"/>
+           
             <NavItem>
               <NavLink href="/chat"><button className="btn_nav" value="/chat" onClick={auth}>
                <ChatIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
               Chat{cat=="http://testmern52.herokuapp.com/chat"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider class="divider"/>
+            </NavItem> 
             <NavItem>
               <NavLink href="/selfhealing"><button className="btn_nav" value="/selfhealing" onClick={auth}>
                <HealingIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
               SelfHealing{cat=="http://testmern52.herokuapp.com/selfhealing"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider class="divider"/>
+            </NavItem> 
             <NavItem>
               <NavLink href="/reliever"><button className="btn_nav" value="/reliever" onClick={auth}>
                <LocalHospitalIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
               Reliever{cat=="http://testmern52.herokuapp.com/reliever"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider class="divider"/>
+            </NavItem> 
             <NavItem>
               <NavLink href="/contribution"><button className="btn_nav" value="/contribution"onClick={auth}>
                 <CardGiftcardIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
               Contribution{cat=="http://testmern52.herokuapp.com/contribution"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider class="divider"/>
+            </NavItem> 
             <NavItem>
               <NavLink href="/story"><button className="btn_nav" value="/story" onClick={auth}>
                 <HistoryEduIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
               Story{cat=="http://testmern52.herokuapp.com/story"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider class="divider"/>
+            </NavItem> 
             <NavItem>
               <NavLink href="/buy"><button className="btn_nav" value="/buy" onClick={auth}>
                <LocalMallIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
               Buy{cat=="http://testmern52.herokuapp.com/buy"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider class="divider"/>
+            </NavItem> 
             <NavItem>
               <NavLink href="/cart"><button className="btn_nav" value="/cart"onClick={auth}>
                <Badge badgeContent={cart_count+cart_number_item} color="primary">
@@ -155,19 +163,31 @@ const Dnavbar = (props) => {
          Cart
       </Badge>{cat=="http://testmern52.herokuapp.com/cart"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider class="divider"/>
+            </NavItem>
              <NavItem>
-              <NavLink href="/setting"><button className="btn_nav" value="/setting"onClick={auth}>
+              <NavLink href="/setting">
+              <button className="btn_nav" value="/setting"onClick={auth}>
                <SettingsIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
               Setting{cat=="http://testmern52.herokuapp.com/setting"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
-            </NavItem> <Divider class="divider"/>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="/healthstatus">
+              <button className="btn_nav" value="/healthstatus"onClick={auth}>
+               <DirectionsRunIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
+              Check Your Status{cat=="http://testmern52.herokuapp.com/setting"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
+            </NavItem>
            
               {login_status==1?
              <NavItem>
-             <NavLink href="/logout" onClick={postdata}><button className="btn btn-primary">
+             <NavLink href="/logout" onClick={postdata}>
+             <button className="btn_nav">
               <LogoutIcon style={{color:'white',marginRight:'10px'}} />
-             Logout</button></NavLink>
+
+             <span style={{color:"white"}}>Logout</span> </button></NavLink>
+            
             </NavItem>
 
           :<>
@@ -397,7 +417,7 @@ const Dnavbar = (props) => {
   return (<>
 
     <div style={{display:'flex'}}>
-      <Navbar style={{width:'100%'}} color="dark" className="container-fluid">
+      <Navbar id="navbar" color="dark" className="container-fluid">
 
  
 
@@ -449,7 +469,7 @@ const Dnavbar = (props) => {
           </Drawer>
         </React.Fragment>
       ))}
-       <NavItem style={{marginLeft:'-25px',marginTop:'-20px'}}>
+      {/* <NavItem style={{marginLeft:'-25px',marginTop:'-20px'}}>
               <NavLink href="#">
           <div style={{display:'flex'}}>
                  <input type="text" placeholder="Speak-launch chat" id="nav_search" value={transcript}/>
@@ -467,7 +487,7 @@ const Dnavbar = (props) => {
     </div>
     </div>
               </NavLink>
-            </NavItem>
+            </NavItem>*/}
       </Navbar>
     </div>
 

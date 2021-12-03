@@ -13,6 +13,17 @@ const cookieParser=require("cookie-parser");
 const auth=require("./middleware/auth")
 const port=process.env.PORT || 3002;
 
+
+var jssvm = require('js-svm');
+// var iris = require('js-datasets-iris');
+var Dataset=require('./Datasets/dataset');
+
+var svm = new jssvm.BinarySvmClassifier({
+  alpha: 0.01, // learning rate
+  iterations: 1000, // maximum iterations
+  C: 5.0, // panelty term
+  trace: false // debug tracing
+});
  
 const staticPath=path.join(__dirname,'../public');
 const templatePath=path.join(__dirname,'../templates/views');
@@ -29,6 +40,35 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended:false}));
 
 console.log(process.env.SECRET_KEY);
+// SVM initialization
+var iris = require('js-datasets-iris');
+iris.shuffle();
+var trainingDataSize = Math.round(iris.rowCount * 0.9);
+var trainingData = [];
+var testingData = [];
+for(var i=0; i < iris.rowCount ; ++i) {
+   var row = [];
+   row.push(iris.data[i][0]); // sepalLength;
+   row.push(iris.data[i][1]); // sepalWidth;
+   row.push(iris.data[i][2]); // petalLength;
+   row.push(iris.data[i][3]); // petalWidth;
+   row.push(iris.data[i][4] == "Iris-virginica" ? 1.0 : 0.0); // output which is 1 if species is Iris-virginica; 0 otherwise
+   if(i < trainingDataSize){
+        trainingData.push(row);
+   } else {
+       testingData.push(row);
+   }
+}
+
+// testingData.push([ 4.09, 3.45, 2.34, 2.05,1 ])
+var result = svm.fit(trainingData);
+// //////////////////////////////////////
+
+
+
+var result = svm.fit(trainingData);
+
+
 
 app.get("/index",(req,res)=>{
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
@@ -58,6 +98,27 @@ app.get("/sltest",(req,res)=>{
   res.status(200);
   res.send();
 });
+
+
+app.post("/svm",auth,(req,res)=>{
+  const newarray=req.body.newarray;
+  console.log(newarray)
+  // console.log("hello i am working");
+  var result = svm.fit(trainingData);
+  
+  var resulta=[]
+  testingData.push(newarray)
+  for(var i=0; i < testingData.length; ++i){
+    var predicted = svm.transform(testingData[i]);
+      console.log(`$$ ${testingData[i]}`);
+    console.log("actual: " + testingData[i][4] + " predicted: " + predicted);
+    resulta.push(predicted);
+    
+   
+ }
+
+ res.status(200).send(String(resulta[resulta.length-1]));;
+})
 app.post("/updatechats",auth,async (req,res)=>{
   try{
     const chat=req.body.chat;
@@ -406,6 +467,8 @@ app.post("/updateproblem",auth,async(req,res)=>{
       bank_acc:bank_acc
 
     } } });
+    res.end();
+    res.status(200);
 
     }
 

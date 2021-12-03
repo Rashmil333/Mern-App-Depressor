@@ -31,6 +31,7 @@ import Dfooter from "./Dfooter";
 import Dlifamilymembers from "./Dlifamilymembers";
 import DeleteIcon from '@material-ui/icons/Delete';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+import Sentiment from 'sentiment'
  
 let socket;
 
@@ -38,6 +39,7 @@ const CONNECTION_PORT=openSocket('http://localhost:3002', {transports: ['websock
 
 
 const Dchat=()=>{
+	const 	sentiment=new Sentiment();
 	const [chatss,setchatss]=useState();
 	const[member,setmember]=useState("harry333@gmail.com");
 	 const [state,setstate]=useState({
@@ -190,6 +192,7 @@ const sendchatforli=async(id)=>{
 	const [phone_me,setphone_me]=useState();
 	const [room_connect,setroom_connect]=useState();
 	const [live,setlive]=useState([]);
+	const [validchat,setValidChat]=useState(2);
 
 	const changemember=(newemail,newname,phone_rec)=>{
 		setlive((olditem)=>{
@@ -219,6 +222,9 @@ const sendchatforli=async(id)=>{
     	value=event.target.value;
     	setstate({...state,[name]:value});
     	console.log(state);
+		const result=sentiment.analyze(event.target.value);
+			console.log(result);
+			setValidChat(result.score);
 	}
 
 	const createemojibutton=(id)=>{
@@ -502,12 +508,28 @@ const sendchatforli=async(id)=>{
 					<Dchatbutton text="..." id="401" outdelete={deletebutton} type="recieve"/>
 					<br/><br/>
 				
-					<input  id="Dchatinput" type="text" placeholder="Type Message" value={inputlist}  onChange={changeinput} name="chat"/>
+					{validchat<0?
+					<input  id="Dchatinput" type="text" placeholder="Type Message" value={inputlist}  onChange={changeinput} name="chat"
+					style={{backgroundColor:'red'}}
+					/>
+					:
+					<input  id="Dchatinput" type="text" placeholder="Type Message" value={inputlist}  onChange={changeinput} name="chat"
+						
+					/>
+
+				}
+					
 
 					
 		
 					<button id="Dchatbutton" style={{position:'fixed',bottom:'0',right:'0',color:'green',backgroundColor:'white',marginLeft:'10px',borderRadius:'20px',outline:'none',border:'none',width:'50px',height:'40px'}} onClick={deletechatslast} ><UndoIcon/></button>
+					
+					{validchat<0?
+					<button id="Dchatbutton" style={{position:'fixed',bottom:'0',marginLeft:'65%',color:'green',backgroundColor:'yellow',borderRadius:'20px',outline:'none',border:'none',width:'50px',height:'37px'}} onClick={()=>alert('You cannot say negative!!! Sorry')} ><SendIcon style={{}}/></button>
+					:
 					<button id="Dchatbutton" style={{position:'fixed',bottom:'0',marginLeft:'65%',color:'green',backgroundColor:'pink',borderRadius:'20px',outline:'none',border:'none',width:'50px',height:'37px'}} onClick={sendchat} ><SendIcon style={{}}/></button>
+					}
+					
 			 
 				
 				</div>

@@ -10,7 +10,7 @@ import bodychangeaction from "./actions/bodychangeaction";
 
 const image="https://miro.medium.com/max/10708/0*VXd_38sPaQ2G7c6w";
  
-const Dlive =()=>{
+const Dlive =()=>{ 
 	const [gamma,setgamma]=useState(false);
 	const [modal, setModal] = useState(false);
 
@@ -49,7 +49,7 @@ const Dlive =()=>{
 		
 		</div>
 		</div>
-		        <h1 id="text_pink">What we can Provide?</h1><br/>
+		        <h1 id="text_white">What we can Provide?</h1><br/>
 		       <p style={{textAlign:'justify', width:'100%'}} id="text_white"><b>Hello guys!!!This is the website we have made for the people who are suffering from depression,anxiety,stress,tensions.We try our best approach to solve your problem. We have a large number of people who are relievers as well as your family.
 					The people who joined us are of two types:Depressor and relievers.Depressors are the people who are suffering from these kind of depressions and sucidial thoughts.On the other hand Relievers are the people who cure your depression and suicidial thoughts.</b></p>
 
@@ -60,7 +60,7 @@ const Dlive =()=>{
 		<div className="container">
 			<div className="row">
 			  <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-				<h1 id="text_pink">How you can join us?</h1>
+				<h1 id="text_white">How you can join us?</h1>
 				<br/>
 				<ul id="text_white">
 					<li>Nope you dont have to do any hard work.</li>
@@ -77,7 +77,7 @@ const Dlive =()=>{
 					<li>You can also write your story.</li>
 				</ul>
 				<br/>
-				<h1 id="text_pink">Check these out:</h1>
+				<h1 id="text_white">Check these out:</h1>
 			  </div>
 			   <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style={{marginTop:'100px',textAlign:'center'}}>
 				<textArea type="text" placeholder="Ask Us" id="Dcomment"/><br/><br/>

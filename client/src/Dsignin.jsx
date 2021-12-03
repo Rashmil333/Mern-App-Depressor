@@ -98,7 +98,7 @@ const Dsignin=()=>{
 		<div className="container" style={{textAlign:'center',marginTop:'100px'}} id="formshadowdiv">
 			<div className="row">
 				<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-					<h1 id="text_pink">Sign In With Depressor</h1><br/>
+					<h1 id="text_pink">Sign Up With Depressor</h1><br/>
 					<div>
 				
 						<label id="text_white">UserName</label><br/>
