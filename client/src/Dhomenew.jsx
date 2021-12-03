@@ -68,7 +68,7 @@ const Dhomenew=()=>{
 				<img src={bird1} id="bird1"/>
 				<img src={bird2} id="bird2"/>
 				<img src={forest} id="forest"/>
-				<a href="/profile"id="btn" >Explore</a>
+				<a href="/login"id="btn" >Enter</a>
 				<img src={rocks} id="rocks"/>
 				<img src={water} id="water"/>
 

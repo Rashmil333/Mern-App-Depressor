@@ -136,7 +136,8 @@ const employeeSchema= new mongoose.Schema({
 			 img_reliever:{type:String},
 			 story:{type:String},
 			 email:{type:String},
-			 category:{type:String}
+			 category:{type:String},
+			 Image:{type:String}
 		}
 	],
 	profile_status:{type:Number},

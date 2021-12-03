@@ -150,17 +150,19 @@ const Dnavbar = (props) => {
               Story{cat=="http://testmern52.herokuapp.com/story"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
             </NavItem> 
+
+
             <NavItem>
               <NavLink href="/buy"><button className="btn_nav" value="/buy" onClick={auth}>
                <LocalMallIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
-              Buy{cat=="http://testmern52.herokuapp.com/buy"?
+              Share{cat=="http://testmern52.herokuapp.com/buy"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
             </NavItem> 
             <NavItem>
               <NavLink href="/cart"><button className="btn_nav" value="/cart"onClick={auth}>
                <Badge badgeContent={cart_count+cart_number_item} color="primary">
         <ShoppingCartIcon value="/cart" onClick={auth} style={{color:'#6b6f7a',marginRight:'10px'}} />
-         Cart
+         Gifts
       </Badge>{cat=="http://testmern52.herokuapp.com/cart"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
             </NavItem>
@@ -171,6 +173,14 @@ const Dnavbar = (props) => {
               Setting{cat=="http://testmern52.herokuapp.com/setting"?
               <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
             </NavItem>
+
+            <NavItem>
+              <NavLink href="/story"><button className="btn_nav" value="/story" onClick={auth}>
+                <HistoryEduIcon style={{color:'#6b6f7a',marginRight:'10px'}} />
+              Story{cat=="http://testmern52.herokuapp.com/story"?
+              <img src="https://64.media.tumblr.com/2e75bce29366db2538eb21444096ff42/tumblr_pkv8sniqcz1sqtg5co2_r1_1280.gifv" style={{width:'20px'}}/>:null}</button></NavLink>
+            </NavItem> 
+
 
             <NavItem>
               <NavLink href="/healthstatus">
@@ -289,7 +299,7 @@ const Dnavbar = (props) => {
     if(res.status==200){
   
     setchat(true);
-  
+   
     history.push(link);
      
     }

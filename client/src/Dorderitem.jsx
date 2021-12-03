@@ -48,7 +48,6 @@ const Dorderitem=(props)=>{
 					<div className="container">
 						<span id="text_white" style={{marginTop:'60px'}}>{props.type}<br/>
 						{props.cost}</span>
-
 					</div>
 					
 					<Button style={{backgroundColor:'#16000a',marginLeft:'8px',marginTop:'8px'}} id="text_white" onClick={cancel_order}>Cancel order</Button>

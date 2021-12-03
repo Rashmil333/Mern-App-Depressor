@@ -20,7 +20,10 @@ const Dcardstory=(props)=>{
 
 							</div>
 							
-							
+							{props.Image==''?
+								null:
+								<img src={props.Image} style={{width:'100%'}}/>
+							}
 
 							<p id="text_white2">{props.story}
 							<hr style={{backgroundColor:'black'}}/>

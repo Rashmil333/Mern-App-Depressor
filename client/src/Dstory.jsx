@@ -9,6 +9,7 @@ import Dcontributiondata from "./Dcontributiondata";
 import Dcardstory from "./Dcardstory";
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import	 Dstorymodalcard from "./Dstorymodalcard";
+import Dloading from './Dloading';
 
 import styled from "styled-components";
 
@@ -94,6 +95,7 @@ const Dstory=()=>{
 	const [depressors,setdepressors]=useState([]); 
 	const [relievers,setrelievers]=useState([]);
 	const [imgdepressor,set_imgdepressor]=useState();
+  
 	var temma="";
 	
 	const [stories,setstories]=useState([]);
@@ -119,6 +121,8 @@ const Dstory=()=>{
      setdepressors(data.depressors);
      setrelievers(data.relievers);
      setstories(data.stories);
+
+
      
     
 
@@ -134,7 +138,7 @@ const Dstory=()=>{
 
   	const db_email="allusers@gmail.com";
    
-    const {email,story,photoo}=note;
+    const {email,story,photoo,Image}=note;
  
     const res=await fetch("/addstory",{
       method:"POST",
@@ -142,7 +146,7 @@ const Dstory=()=>{
         "Content-Type":"application/json"
       },
       body:JSON.stringify({
-       email,photoo,img_depressor,db_email,story,category
+       email,photoo,img_depressor,db_email,story,category,Image
       })
     });
 
@@ -189,7 +193,8 @@ const Dstory=()=>{
 		story:'',
 		email:'',
 		photoo:'',
-		dep_img:''
+		dep_img:'',
+    Image:'',
 	});
 	const inputevent=(event)=>{
 		const {name,value}=event.target;
@@ -351,7 +356,7 @@ const [mlresult,setmlresult]=useState(false);
 		<Dnavbar/>
 		 
 		
-		<div style={{backgroundColor:'#10182f'}}>
+		<div style={{backgroundColor:'#10182f',minHeight:'100vh'}}>
 		<br/>
 		<p id="text_white">{category}</p>
 		<div className="container" >
@@ -375,7 +380,7 @@ const [mlresult,setmlresult]=useState(false);
 			
 				})}
 					{stories.map((cvalue)=>{
-					return(<Dcardstory story={cvalue.story} email={cvalue.email} imgr={cvalue.img_reliever} category={cvalue.category} depressor_img={cvalue.img_depressor}/>)
+					return(<Dcardstory story={cvalue.story} Image={cvalue.Image} email={cvalue.email} imgr={cvalue.img_reliever} category={cvalue.category} depressor_img={cvalue.img_depressor}/>)
 				})}
 
 			 		</div>
@@ -402,7 +407,7 @@ const [mlresult,setmlresult]=useState(false);
 					>
 						Select Image
 					</Button>
-						<input id="email" name="email" class="blackinput" value={note.email} onChange={inputevent} type="text" placeholder="Give the url of image"/><br/><hr style={{backgroundColor:'pink'}}/>
+						<input id="Image" name="Image" class="blackinput" value={note.Image} onChange={inputevent} type="text" placeholder="Give the url of image"/><br/><hr style={{backgroundColor:'pink'}}/>
 					<br/>	<br/>
 					{
 						mlresult==true && isLoading==false?
@@ -413,9 +418,7 @@ const [mlresult,setmlresult]=useState(false);
 						:null
 					}
 					{isLoading==true?
-						 <div className="loader">
-		 	
-		 				</div>
+            <Dloading/>
 						:null}
 						
 					<div style={{width:'200px',height:'200px'}}>

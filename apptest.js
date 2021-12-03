@@ -383,13 +383,15 @@ app.post("/addstory",auth,async(req,res)=>{
     const img_depressor=req.body.img_depressor;
     const story=req.body.story;
     const temma=req.body.category;
+    const mainImage=req.body.Image;
 
     const newresult=await Register.findOneAndUpdate( { email: db_email },{ $push: { stories: {
       img_depressor:img_depressor,
       img_reliever:photoo,
       email:email,
       story:story,
-      category:temma
+      category:temma,
+      Image:mainImage
 
 
 

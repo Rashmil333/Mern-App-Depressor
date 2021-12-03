@@ -17,6 +17,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText'; 
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Dloading from './Dloading';
 import {
   Carousel,
   CarouselItem,
@@ -61,23 +62,25 @@ const useStyles = makeStyles({
 
 const items = [
   {
-    src: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWVkaWNpbmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80',
-    altText: 'Fresh Stock of Medicines.',
+    src: 'https://images.pexels.com/photos/325153/pexels-photo-325153.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+    altText: 'Share your Accessories  ',
     caption: 'All the products are stocked after March'
   },
   {
-    src: 'https://images.unsplash.com/photo-1583316174775-bd6dc0e9f298?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGNsb3RoaW5nJTIwc3RvcmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80',
-    altText: 'Trendy Clothes with percent offs',
+    src: 'https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    altText: 'Share your Gadgets',
     caption: 'Return is not valid.'
   },
   {
-    src: 'https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnZXRhYmxlc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80',
-    altText: 'Fresh Fruits and Packs of juices.',
+    src: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+    altText: 'Share your Items',
     caption: 'Return In case not satisfied.'
   }
 ];
 
 const Dbuy = (props) => {
+
+  const [loading,setLoading]=useState(true);
  const classes = useStyles();
     const styles = useStyles();
   const [stated, setStated] = React.useState({
@@ -233,6 +236,8 @@ const Dbuy = (props) => {
 
     const identify = async () => {
         setisLoading(true)
+    
+
         const results = await model.classify(imageRef.current)
         setResults(results);
         results.map((cvalue)=>{
@@ -245,6 +250,7 @@ const Dbuy = (props) => {
         document.getElementById('paster').value='';
         setTimeout(()=>{
           setisLoading(false);
+        
         },4000)
     }
 
@@ -278,22 +284,7 @@ const Dbuy = (props) => {
   return (<>
   
   	<Dnavbar/>
- <div>
-      {[ 'right'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={stated[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-           classes={{ paper: styles.paper }}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
-    <Button onClick={toggleDrawer('right',true)}>React</Button>
+
   	{state==true?<Dbuyitemopen img={imga} type={typa} cost={costa} backo={goback}/>:<div>
     <Carousel 
       activeIndex={activeIndex}
@@ -322,10 +313,12 @@ const Dbuy = (props) => {
                        {isLoading==true&& imageURL?<div className="loader" onClick={identify}>
       
             </div>:
-            imageURL&&isLoading==false?
+            imageURL&&isLoading==false?<>
             <div className="loaderimg" onClick={identify}>
-      
+                
             </div>
+             <Button onClick={toggleDrawer('right',true)}>Results</Button>
+             </>
             :null}
                     </div>
                  
@@ -352,8 +345,22 @@ const Dbuy = (props) => {
     </div>
     </div>
    	}
-  
-   	<Dfooter/>
+   <div>
+      {[ 'right'].map((anchor) => (
+        <React.Fragment key={anchor}>
+         
+          <Drawer
+            anchor={anchor}
+            open={stated[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+           classes={{ paper: styles.paper }}
+          >
+            {list(anchor)}
+          </Drawer>
+        </React.Fragment>
+      ))}
+    </div>
+   
     </>
   );
 }

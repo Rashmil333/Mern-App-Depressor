@@ -778,10 +778,12 @@ overflow-y:scroll;
 	transition:0.5s;
 }
 #buydiv{
-	background-image: url('https://freedesignfile.com/upload/2020/10/Superimposed-black-squares-combination-abstract-background-vector.jpg');
+	background-image: url('https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260	');
 	width:100%;
 	margin-top:20px;
-	margin-left:0px
+	margin-left:0px;
+	background-size: cover;
+	
 
 }
 #cardstory{
