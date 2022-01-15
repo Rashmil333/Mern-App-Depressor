@@ -191,13 +191,6 @@ const Dnavbar = (props) => {
     setprofile_photo(data.profile[0].img);
     setemail(data.email)
     }
-   
-   
-  
-
-    
-
-
    }
 
     const auth=async(e)=>{
@@ -275,9 +268,6 @@ const Dnavbar = (props) => {
 
     <div style={{display:'flex'}}>
       <Navbar style={{width:'100%'}} color="dark" className="container-fluid">
-
-    
-
       <div class="logo">
       <div class="logo_center">
         <div class="logo_in">
@@ -285,24 +275,11 @@ const Dnavbar = (props) => {
             <div class="logo2">
               <div class="logo3">
                 <div class="logo4"></div>
-          
-                
               </div>
-              
             </div>
-            
           </div>
-        
-          
-        
         </div>
-
-        
       </div>
-      
-    
-
-
       </div>
         <NavbarBrand href="/" id="navbar_tab" >
         <ul>
@@ -328,13 +305,9 @@ const Dnavbar = (props) => {
       ))}
        <NavItem style={{marginLeft:'-25px',marginTop:'-20px'}}>
               <NavLink href="#">
-          
+
                  <input type="text" placeholder="search" id="nav_search"/>
               <button style={{marginLeft:'-50px',color:'black'}} className="btn " id="text_white"  onClick={ai} id="n_btn"><SearchIcon style={{marginBottom:'4px'}} /></button>
-                
-            
-          
-
               </NavLink>
             </NavItem>
       </Navbar>

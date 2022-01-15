@@ -17,6 +17,7 @@ import Dhomenew from "./Dhomenew";
 import Haider2 from "./Haider2";
 import Dhealthstatus from './Dhealthstatus';
 import Notfound from "./Notfound";
+import Dtest from './Dtest';
 const Dwebsite=()=>{
 	return(<>
 		<Switch>
@@ -34,7 +35,9 @@ const Dwebsite=()=>{
 			<Route exact path="/login" component={Dlogin}/>
 			<Route exact path="/setting" component={Dsetting}/>
 			<Route exact path="/healthstatus" component={Dhealthstatus}/>
+			<Route exact path="/test" component={Dtest}/>
 			<Route path="" component={Notfound} />
+
 
 		</Switch>
 	</>);

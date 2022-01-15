@@ -121,7 +121,7 @@ const Dhomenew=()=>{
 			
 			
 	</div>		</div>
-
+	<video autoplay muted/>
 
 	
 	</>)
