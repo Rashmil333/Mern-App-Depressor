@@ -17,6 +17,9 @@ import Dtest from "./Dtest";
 import Dnavbartest from "./Dnavbartest";
 import Shome from "./Shome";
 import Swebsite from "./Swebsite";
+import './fonts/Orbitronio.ttf';
+import './fonts/Eurostile/EuroStyle Normal.ttf';
+import './fonts/Spaceman/Spaceman.TTF';
 
 store.subscribe(()=>console.log(store.getState()));
 	// <BrowserRouter>

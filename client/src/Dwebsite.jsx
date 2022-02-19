@@ -13,10 +13,14 @@ import Dcart from "./Dcart";
 import Dsignin from "./Dsignin";
 import Dlogin from "./Dlogin";
 import Dsetting from "./Dsetting";
+import Dhomenew from "./Dhomenew";
+import Haider2 from "./Haider2";
+import Dhealthstatus from './Dhealthstatus';
+import Notfound from "./Notfound";
 const Dwebsite=()=>{
 	return(<>
 		<Switch>
-			<Route exact path="/" component={Dhome}/>
+			<Route exact path="/" component={Dhomenew}/>
 			<Route exact path="/profile" component={Dprofile}/>
 			<Route exact path="/chat" component={Dchat}/>
 			<Route exact path="/reliever" component={Dreliever}/>
@@ -29,6 +33,8 @@ const Dwebsite=()=>{
 			<Route exact path="/signup" component={Dsignin}/>
 			<Route exact path="/login" component={Dlogin}/>
 			<Route exact path="/setting" component={Dsetting}/>
+			<Route exact path="/healthstatus" component={Dhealthstatus}/>
+			<Route path="" component={Notfound} />
 
 		</Switch>
 	</>);

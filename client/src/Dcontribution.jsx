@@ -9,7 +9,7 @@ import Dcontributeprobdiv from "./Dcontributeprobdiv";
 import Dcontributiondata from "./Dcontributiondata";
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
-const Dcontribution=()=>{
+const Dcontribution=()=>{ 
 
 	const [state,setstate]=useState({
     email:"",name:"",phoneno:"",img:"",bank_acc:"",problem:"",address:"",nearest_res:""
@@ -42,10 +42,16 @@ const Dcontribution=()=>{
         email_sender,email,name,phoneno,img,bank_acc,problem,address,nearest_res
       })
     });
+	console.log(res.status);
+	if(res.status==200){
+		alert('Problem is posted!')
+		window.location.reload();
+	}
+	else{
+		alert('Sorry try again!');
+	}
 
-    const data=await res.json();
-    setstate([]);
-
+   
 
     
   }
@@ -115,10 +121,10 @@ const Dcontribution=()=>{
 	return(<>
 			<Dnavbar/>	
 			<h1 id="text_pink" style={{textAlign:'center'}}>People Who need help</h1><br/><br/>
-      <a style={{marginLeft:'20%',color:'white',textDecoration:'none'}} href="#skip">Ask a Problem<ArrowDownwardIcon/></a><br/><br/>
-			<div className="container" id="contribute_div" style={{backgroundColor:'#171717'}}>
+      {/* <a style={{marginLeft:'20%',color:'white',textDecoration:'none'}} href="#skip">Ask a Problem<ArrowDownwardIcon/></a><br/><br/> */}
+			<div  id="contribute_div" style={{backgroundColor:'#171717'}}>
 				<div className="row" >
-					<div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"id="contributionprob">
+					<div style={{}}    id="contributionprob">
 					
 						{Dcontributiondata.map((cvalue)=>{
 							return(<Dcontributeprobdiv name={cvalue.name} text={cvalue.text} img={cvalue.img}/>);
@@ -131,28 +137,71 @@ const Dcontribution=()=>{
 						
 
 					</div>
-					<div id="skip" className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style={{textAlign:'center'}}>
+					{/* <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+						<div style={{width:'300px',height:'300px',backgroundColor:'#252837'
+						,marginTop:'10px',borderRadius:'13px'}}>
+							<p style={{marginTop:'20px',marginLeft:'10px'}}>Trending Problems</p>
+							<br/>
+							<div style={{display:'flex',marginTop:'10px'}}>
+								<div style={{marginLeft:'30px'}}>
+											<img  src="https://images.unsplash.com/photo-1530490125459-847a6d437825?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVscGluZyUyMHRoZSUyMG5lZWR5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" id="contributephoto"/>
+										<p style={{textAlign:'center'}}>Tsunami</p>
+								</div>
+									<div style={{marginLeft:'30px'}}>
+											<img  src="https://images.unsplash.com/photo-1530490125459-847a6d437825?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVscGluZyUyMHRoZSUyMG5lZWR5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" id="contributephoto"/>
+										<p style={{textAlign:'center'}}>Starvation</p>
+								</div>
+									<div style={{marginLeft:'30px'}}>
+											<img  src="https://images.unsplash.com/photo-1530490125459-847a6d437825?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVscGluZyUyMHRoZSUyMG5lZWR5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" id="contributephoto"/>
+										<p style={{textAlign:'center'}}>Tsunami</p>
+								</div>
+		
+							</div>
+
+								<div style={{display:'flex',marginTop:'10px'}}>
+								<div style={{marginLeft:'30px'}}>
+											<img  src="https://images.unsplash.com/photo-1530490125459-847a6d437825?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVscGluZyUyMHRoZSUyMG5lZWR5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" id="contributephoto"/>
+										<p style={{textAlign:'center'}}>Tsunami</p>
+								</div>
+									<div style={{marginLeft:'30px'}}>
+											<img  src="https://images.unsplash.com/photo-1530490125459-847a6d437825?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVscGluZyUyMHRoZSUyMG5lZWR5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" id="contributephoto"/>
+										<p style={{textAlign:'center'}}>Starvation</p>
+								</div>
+									<div style={{marginLeft:'30px'}}>
+											<img  src="https://images.unsplash.com/photo-1530490125459-847a6d437825?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVscGluZyUyMHRoZSUyMG5lZWR5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" id="contributephoto"/>
+										<p style={{textAlign:'center'}}>Tsunami</p>
+								</div>
+		
+							</div>
+					
+							
+						</div>
+						
+					</div> */}
+				
+				</div>
+					<div id="skip"  style={{textAlign:'center'}}>
 							<h1 id="text_pink">More Contribute More <span >Peace</span></h1>
 							<p id="text_pink">We are for you so ask freely for any kind of help.
 							<br/>Whether it is financial help or any other product base help.
 							This is your family!!!</p><br/><br/>
 						  <form  method="POST">
-							<textArea id="Dcomment" type="text" placeholder="Ask for help" style={{height:'140px'}} name="problem" value={state.problem} onChange={inputevent}/><br/><br/>
+							<textArea id="Dcomment" class="blackinput" type="text" placeholder="Ask for help" style={{height:'140px'}} name="problem" value={state.problem} onChange={inputevent}/><br/><br/>
 
-							<input id="img"  className="contribution_input" type="text" placeholder="Give the url of your image.It can be random image." name="img" value={state.img} onChange={inputevent}/><br/>
+							<input id="img"  className="blackinput2" type="text" placeholder="Give the url of your image.It can be random image." name="img" value={state.img} onChange={inputevent}/><br/>
 
-							<input id="bank" className="contribution_input" type="text" placeholder="Bank Account No."name="bank_acc" value={state.bank_acc} onChange={inputevent}/><br/>
+							<input id="bank" className="blackinput2" type="text" placeholder="Bank Account No."name="bank_acc" value={state.bank_acc} onChange={inputevent}/><br/>
 
-							<input id="res" className="contribution_input" type="text" placeholder="Address of nearest restaurent." name="nearest_res" value={state.nearest_res} onChange={inputevent} /><br/>
+							<input id="res" className="blackinput2" type="text" placeholder="Address of nearest restaurent." name="nearest_res" value={state.nearest_res} onChange={inputevent} /><br/>
 
-							<input id="address" className="contribution_input" type="text" placeholder="Your Address" name="address" value={state.address} onChange={inputevent}/><br/>
+							<input id="address" className="blackinput2" type="text" placeholder="Your Address" name="address" value={state.address} onChange={inputevent}/><br/>
 							
-							<input id="name"  className="contribution_input" type="text" placeholder="Name" name="name" value={state.name} onChange={inputevent}/><br/>
+							<input id="name"  className="blackinput2" type="text" placeholder="Name" name="name" value={state.name} onChange={inputevent}/><br/>
 						
-							<input id="phone"  className="contribution_input" type="text" placeholder="Your phone no" name="phoneno" value={state.phoneno} onChange={inputevent}/><br/>
+							<input id="phone"  className="blackinput2" type="text" placeholder="Your phone no" name="phoneno" value={state.phoneno} onChange={inputevent}/><br/>
 						
 
-							<input id="email" className="contribution_input" type="text" placeholder="email" name="email" value={state.email} onChange={inputevent}/><br/>
+							<input id="email" className="blackinput2" type="text" placeholder="email" name="email" value={state.email} onChange={inputevent}/><br/>
 							<br />
 
 							<Button type="submit" id="Dsendbut" onClick={postdata}>Send</Button>
@@ -174,8 +223,8 @@ const Dcontribution=()=>{
 			<img id="contributeapp" style={{width:'40%',height:'19%',marginLeft:'10px',marginTop:'6px'}} src="https://res-1.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1451970261/c3wxrwtvwokmz7l7ptqu.png"/>
 						
 					</div>
-				</div>
 			</div>
+
 			<Dfooter/>	
 
 			

@@ -1,0 +1,79 @@
+[
+    {
+      "text": "how are you?",
+      "category": "Interrogative"
+    },
+    {
+      "text": "I am fine",
+      "category": "Imperative"
+    },
+    {
+      "text": "Boom!",
+      "category": "Exclamatory"
+    },
+    {
+      "text": "How was your day?",
+      "category": "Interrogative"
+    },
+    {
+      "text": "what was the day today",
+      "category": "Interrogative"
+    },
+    {
+      "text": "Where are you going",
+      "category": "Interrogative"
+    },
+    {
+      "text": "I am not working",
+      "category": "Imperative"
+    },
+    {
+      "text": "you are awesome!",
+      "category": "Exclamatory"
+    },
+    {
+      "text": "I will do my work",
+      "category": "Imperative"
+    },
+    {
+      "text": "I am not doing my work",
+      "category": "Negative"
+    },
+    {
+      "text": "You are an idiot!",
+      "category": "Exclamatory"
+    },
+    {
+      "text": "Thanks!!!",
+      "category": "Exclamatory"
+    },
+    {
+      "text": "are you playing",
+      "category": "Interrogative"
+    },
+    {
+      "text": "can you do my work",
+      "category": "Interrogative"
+    },
+    {
+      "text": "How was your day",
+      "category": "Interrogative"
+    },
+    {
+      "text": "i broke my pc",
+      "category": "Imperative"
+    },
+    {
+      "text": "i am doing well",
+      "category": "Imperative9i"
+    },
+    {
+        "text": "buy me a laptop",
+        "category": "Exclamatory"
+    },
+    {
+        "text": "i love to play games",
+        "category": "Imperative"
+    }
+  ]
+  
