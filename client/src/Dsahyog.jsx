@@ -16,13 +16,11 @@ const history=useHistory();
 		mess:'Namaste!',
 		pos:'left'
 	},
-
-
 	]);
 	const exclamatory={'amazing':1,'wow':1,'hurrah':1,'shit':-1,'oops':-1,'amazing':1,'brilliant':1,'jesus':1,'fantastic':1,'awesome':1,'genius':1,'smart':1,'smarty':1}
 	const intero=['has','have','had','was','did','does','do','who','can','how','what','when','where','whose','what','why','is','had','was','if','have','has','are','am']
 	const user_itself=['i ','me','we','us','I']
-	const to_sahyog=['you','they','there']
+	const to_sahyog=['you','they','there','sir']
 	const preposition=[
 	'about','with','during','instead','while','without','an','and','it','they','in','a','onto','into','my','me'
 	]
@@ -347,6 +345,10 @@ useEffect(()=>{
 		 scrollToBottom();
 	
 	var text_=text.toLowerCase();
+	text_=text_.replace(/[^a-zA-Z ]/g, "")
+	// for(let i =0;i<text_.length;i++){
+	// 	if(text_[i]==='?'|| text_[i]==='.' || text_[i]==='/' ||text_[i]===',' || text_[i]==='>' ||text_[i]==='<' ||)
+	// }
 	settext('');
 	// alert(text_)
 	var info=false;
@@ -426,7 +428,7 @@ useEffect(()=>{
 
 		}
 		else if(to_sahyog.includes(texta[i])){
-
+			console.log('111','yes');
 		}
 
 		else if(user_itself.includes(texta[i])){
@@ -470,6 +472,7 @@ useEffect(()=>{
 					
 				}
 			})
+		
 			if(state==false){
 				unidentified_word=texta[i]
 				break
