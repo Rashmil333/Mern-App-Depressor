@@ -4,43 +4,36 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Dwebsite from "./Dwebsite";
-import Websocket from "./Websocket";
-import Dtestchat from "./Dtestchat";
-import Dreactreduxapp from "./Dreactreduxapp";
+
 import store from "./store";
-import {Provider} from "react-redux";
-import Dtodobyreactredux from "./Dtodobyreactredux";
-import Dreduxcalculator from "./Dreduxcalculator";
-import Dtest from "./Dtest";
-import Dnavbartest from "./Dnavbartest";
-import Shome from "./Shome";
-import Swebsite from "./Swebsite";
+import { Provider } from "react-redux";
+
 import './fonts/Orbitronio.ttf';
 import './fonts/Eurostile/EuroStyle Normal.ttf';
 import './fonts/Spaceman/Spaceman.TTF';
 
-store.subscribe(()=>console.log(store.getState()));
-	// <BrowserRouter>
-	// 	<Dwebsite/>
-	// </BrowserRouter>
+store.subscribe(() => console.log(store.getState()));
+// <BrowserRouter>
+// 	<Dwebsite/>
+// </BrowserRouter>
 
-	// <Dtest/>
+// <Dtest/>
 
-	// <Provider store={store}>
-	// 	<Dreduxcalculator/>
-	// </Provider>
+// <Provider store={store}>
+// 	<Dreduxcalculator/>
+// </Provider>
 ReactDOM.render(<>
-	
-<Provider store={store}>
-	<BrowserRouter>
-		<Dwebsite/>
-	</BrowserRouter>
- </Provider>
 
-	</>,
-  document.getElementById('root')
+	<Provider store={store}>
+		<BrowserRouter>
+			<Dwebsite />
+		</BrowserRouter>
+	</Provider>
+
+</>,
+	document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,0 +1,48 @@
+import React from 'react';
+
+const Dcontributiondata=[
+	{	id:'0',
+		name:'Mariana',
+		text:'Hello guys i am a college student and my financial conditions are rough.I can rarely afford my college budgets.My father is farmer and mother is a housewife.If anyone is interested to help.Please do it fast.',
+		img:'https://www.fotor.com/blog/wp-content/uploads/2019/10/12.blur-photo.png',
+	},
+		
+		{id:'1',
+		name:'Harry',
+		text:'Hello guys i am a college student and my financial conditions are rough.I can rarely afford my college budgets.My father is farmer and mother is a housewife.If anyone is interested to help.Please do it fast.',
+		img:'https://st2.depositphotos.com/2931363/6819/i/600/depositphotos_68197553-stock-photo-handsome-young-man-making-selfie.jpg',
+	},
+		
+		{name:'Lily',
+		id:'2',
+		text:'Hello guys i am a college student and my financial conditions are rough.I can rarely afford my college budgets.My father is farmer and mother is a housewife.If anyone is interested to help.Please do it fast.',
+		img:'https://xoxobella.com/wp-content/uploads/2020/06/instagram_captions_for_selfies_and-_selfie_puns_bella_bucchiotti-4.jpg',
+	},
+		{name:'Vyomesh',
+		id:'3',
+		text:'Hello guys i am a college student and my financial conditions are rough.I can rarely afford my college budgets.My father is farmer and mother is a housewife.If anyone is interested to help.Please do it fast.',
+		img:'https://st.focusedcollection.com/18590116/i/650/focused_227260878-stock-photo-close-man-posing-selfie.jpg',
+	},
+		{name:'Jalandhar',
+		id:'4',
+		text:'Hello guys i am a college student and my financial conditions are rough.I can rarely afford my college budgets.My father is farmer and mother is a housewife.If anyone is interested to help.Please do it fast.',
+		img:'https://c8.alamy.com/comp/J29KW0/athletic-asian-man-taking-a-selfie-during-a-morning-run-J29KW0.jpg',
+	},
+		{name:'Eddie',
+		id:'5',
+		text:'Hello guys i am a college student and my financial conditions are rough.I can rarely afford my college budgets.My father is farmer and mother is a housewife.If anyone is interested to help.Please do it fast.',
+		img:'https://c8.alamy.com/comp/GD2473/one-young-male-asian-or-chinese-college-students-looking-at-camera-GD2473.jpg',
+	},
+		{name:'Justin',
+		id:'6',
+		text:'Hello guys i am a college student and my financial conditions are rough.I can rarely afford my college budgets.My father is farmer and mother is a housewife.If anyone is interested to help.Please do it fast.',
+		img:'https://previews.123rf.com/images/sevendeman/sevendeman2001/sevendeman200100063/137683275-happy-asian-man-selfie-in-his-condominium-room-.jpg',
+	},
+		{name:'Andrew',
+		id:'7',
+		text:'Hello guys i am a college student and my financial conditions are rough.I can rarely afford my college budgets.My father is farmer and mother is a housewife.If anyone is interested to help.Please do it fast.',
+		img:'https://c8.alamy.com/comp/F7JGF8/portrait-of-a-smiling-asian-male-student-standing-with-arms-folded-F7JGF8.jpg',
+	},
+]
+
+export default Dcontributiondata;

@@ -1,0 +1,124 @@
+
+.g_heart{
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  position: relative;
+  transform:rotate(45deg);
+    box-shadow: 0px 10px 20px grey;
+    animation: g_hbeat 2s linear infinite;
+}
+
+.g_heartMediumSpeed{
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  position: relative;
+  transform:rotate(45deg);
+    box-shadow: 0px 10px 20px grey;
+    animation: g_hbeat 1s linear infinite;
+}
+.g_heartHighSpeed{
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  position: relative;
+  transform:rotate(45deg);
+    box-shadow: 0px 10px 20px grey;
+    animation: g_hbeat 0.5s linear infinite;
+}
+
+
+@keyframes g_hbeat{
+  0%{
+    transform: rotate(45deg) scale(1);
+
+  }
+  20%{
+    transform: rotate(45deg) scale(1.2);
+
+  }
+  40%{
+    transform: rotate(45deg) scale(1.4);
+
+  }
+  60%{
+    transform: rotate(45deg) scale(1.2);
+
+  }
+  100%{
+    transform: rotate(45deg) scale(1);
+
+  }
+}
+.g_heart::before{
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  position: absolute;
+  transform: translateY(-50%);
+  border-radius: 50%;
+
+
+
+
+}
+.g_heart::after{
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  position: absolute;
+  transform: translateX(-50%);
+   border-radius: 50%;
+
+}
+
+.g_heartMediumSpeed::before{
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  position: absolute;
+  transform: translateY(-50%);
+  border-radius: 50%;
+
+
+
+
+}
+.g_heartMediumSpeed::after{
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  position: absolute;
+  transform: translateX(-50%);
+   border-radius: 50%;
+
+}
+
+.g_heartHighSpeed::before{
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  position: absolute;
+  transform: translateY(-50%);
+  border-radius: 50%;
+
+
+
+
+}
+.g_heartHighSpeed::after{
+  content: '';
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  position: absolute;
+  transform: translateX(-50%);
+   border-radius: 50%;
+
+}
