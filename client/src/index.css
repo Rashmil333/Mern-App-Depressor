@@ -1956,6 +1956,7 @@ font-weight: bolder;
 	height: 100%;
 	pointer-events: none;
 	object-fit: cover;
+<<<<<<< HEAD
 }
 .section::before{
 	content: '';
@@ -2147,6 +2148,199 @@ font-weight: bolder;
 		transform: translateX(0px);
 	}
 }
+=======
+}
+.section::before{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	background:linear-gradient(to top,#094b65 ,transparent);
+	z-index: 10;
+}
+#fish1{
+	position: relative;
+	animation: 40s float linear infinite;
+}
+#fish1::before{
+	content: 'Fight Depression';
+	font-family: rancho ;
+	position: absolute;
+	background-color: white;
+	top: -50px;
+	color:black;
+	border-radius: 40px;
+	padding: 10px;
+	
+
+}
+@keyframes float{
+	0%{
+		transform: translateX(0px);
+	}
+
+	50%{
+		transform: translateX(80vw);
+
+	}
+
+	100%{
+		transform: translateX(0px);
+	}
+}
+
+#fish2{
+	position: relative;
+	animation: 20s float linear infinite;
+
+}
+#fish2::before{
+	content: 'Fight Anxiety';
+	font-family: rancho ;
+	position: absolute;
+	background-color: white;
+	top: -50px;
+	color:black;
+	border-radius: 40px;
+	padding: 10px;
+}
+
+@keyframes float{
+	0%{
+		transform: translateX(0px);
+	}
+
+	50%{
+		transform: translateX(80vw);
+
+	}
+
+	100%{
+		transform: translateX(0px);
+	}
+}
+
+#fish3{
+	position: relative;
+	animation: 30s float linear infinite;
+
+}
+#fish3::before{
+	content: 'Keep helping';
+	font-family: rancho ;
+	position: absolute;
+	background-color: white;
+	top: -50px;
+	color:black;
+	border-radius: 40px;
+	padding: 10px;
+}
+@keyframes float{
+	0%{
+		transform: translateX(0px);
+	}
+
+	50%{
+		transform: translateX(80vw);
+
+	}
+
+	100%{
+		transform: translateX(0px);
+	}
+}
+
+#fish4{
+	position: relative;
+	animation: 60s float linear infinite;
+
+}
+#fish4::before{
+	content: 'Fight Sadness';
+	font-family: rancho ;
+	position: absolute;
+	background-color: white;
+	top: -50px;
+	color:black;
+	border-radius: 40px;
+	padding: 10px;
+}
+@keyframes float{
+	0%{
+		transform: translateX(0px);
+	}
+
+	50%{
+		transform: translateX(80vw);
+
+	}
+
+	100%{
+		transform: translateX(0px);
+	}
+}
+#fish5{
+	position: relative;
+	animation: 55s float linear infinite;
+	margin-top: 50px;
+
+}
+#fish5::before{
+	content: 'Face Tension';
+	font-family: rancho ;
+	position: absolute;
+	background-color: white;
+	top: -50px;
+	color:black;
+	border-radius: 40px;
+	padding: 10px;
+}
+@keyframes float{
+	0%{
+		transform: translateX(0px);
+	}
+
+	50%{
+		transform: translateX(80vw);
+
+	}
+
+	100%{
+		transform: translateX(0px);
+	}
+}
+#fish6{
+	position: relative;
+	animation: 40s float linear infinite;
+
+}
+#fish6::before{
+	content: 'Say no to Suicide';
+	font-family: rancho ;
+	position: absolute;
+	background-color: white;
+	top: -50px;
+	color:black;
+	border-radius: 40px;
+	padding: 10px;
+}
+@keyframes float{
+	0%{
+		transform: translateX(0px);
+	}
+
+	50%{
+		transform: translateX(80vw);
+
+	}
+
+	100%{
+		transform: translateX(0px);
+	}
+}
+>>>>>>> ca0a22cab1be5d7ee1a9003121732729ce2d3489
 
 .loader{
 	margin-left: 90px;
@@ -2491,11 +2685,19 @@ font-weight: bolder;
 *{
 	scroll-behavior: smooth
 }
+<<<<<<< HEAD
+/* .blacksky{
+	width:100vw;
+	height:100vh;
+	background:linear-gradient(to bottom,#094b65,black,black);
+} */
+=======
 .blacksky{
 	width:100vw;
 	height:100vh;
 	background:linear-gradient(to bottom,#094b65,black,black);
 }
+>>>>>>> ca0a22cab1be5d7ee1a9003121732729ce2d3489
 @font-face {
 	font-family: "EuroStyle Normal";
 	src: local("EuroStyle Normal"),

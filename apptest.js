@@ -13,24 +13,6 @@ const AllStories = require("./models/stories");
 const cookieParser = require("cookie-parser");
 const auth = require("./middleware/auth")
 const port = process.env.PORT || 3002;
-const brain = require('brain.js');
-const BrainJSdata = require('./Datasets/ChatTrainData.json');
-
-const network = new brain.recurrent.LSTM();
-
-const TrainChatData = async () => {
-  const trainingdata = await BrainJSdata.map(item => ({
-    input: item.text,
-    output: item.category
-  }));
-  network.train(trainingdata, {
-    iterations: 2000
-  });
-
-  const output = network.run('who are you depressor?');
-
-  console.log(`Category: ${output}`);
-}
 // TrainChatData();
 var jssvm = require('js-svm');
 // var iris = require('js-datasets-iris');
@@ -413,7 +395,6 @@ app.post("/profile", auth, async (req, res) => {
           }
         }
       });
-
 
 
     }
