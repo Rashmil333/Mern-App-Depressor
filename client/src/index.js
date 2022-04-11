@@ -8,23 +8,12 @@ import { BrowserRouter } from "react-router-dom";
 import Dwebsite from "./Dwebsite";
 
 import store from "./store";
-<<<<<<< HEAD
 import { Provider } from "react-redux";
 
-=======
-import {Provider} from "react-redux";
-import Dtodobyreactredux from "./Dtodobyreactredux";
-import Dreduxcalculator from "./Dreduxcalculator";
-import Dtest from "./Dtest";
-import Dnavbartest from "./Dnavbartest";
-import Shome from "./Shome";
-import Swebsite from "./Swebsite";
->>>>>>> ca0a22cab1be5d7ee1a9003121732729ce2d3489
 import './fonts/Orbitronio.ttf';
 import './fonts/Eurostile/EuroStyle Normal.ttf';
 import './fonts/Spaceman/Spaceman.TTF';
 
-<<<<<<< HEAD
 store.subscribe(() => console.log(store.getState()));
 // <BrowserRouter>
 // 	<Dwebsite/>
@@ -35,18 +24,6 @@ store.subscribe(() => console.log(store.getState()));
 // <Provider store={store}>
 // 	<Dreduxcalculator/>
 // </Provider>
-=======
-store.subscribe(()=>console.log(store.getState()));
-	// <BrowserRouter>
-	// 	<Dwebsite/>
-	// </BrowserRouter>
-
-	// <Dtest/>
-
-	// <Provider store={store}>
-	// 	<Dreduxcalculator/>
-	// </Provider>
->>>>>>> ca0a22cab1be5d7ee1a9003121732729ce2d3489
 ReactDOM.render(<>
 
 	<Provider store={store}>
