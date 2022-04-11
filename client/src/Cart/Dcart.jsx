@@ -79,7 +79,7 @@ const Dcart = () => {
 							<Button style={{ backgroundColor: '#570029', marginLeft: '8px', marginTop: '8px' }} id="text_white" onClick={e => changediv('two')}>Balance</Button>
 						</div>
 						<div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
-
+							sdgsgsgsd
 							<Button style={{ backgroundColor: '#570029', marginLeft: '8px', marginTop: '8px' }} id="text_white" onClick={e => changediv('three')}>Gift Cards</Button>
 
 						</div>
