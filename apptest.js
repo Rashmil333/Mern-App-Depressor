@@ -397,7 +397,6 @@ app.post("/profile", auth, async (req, res) => {
       });
 
 
-
     }
 
     res.send(200);
