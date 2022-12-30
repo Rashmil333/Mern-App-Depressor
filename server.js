@@ -71,7 +71,8 @@ var result = svm.fit(trainingData);
 
 
 app.get("/index", (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  // res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  res.status(200).send('testing');
 })
 
 app.get("/logout", auth, async (req, res) => {
