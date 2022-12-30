@@ -137,16 +137,6 @@ const employeeSchema = new mongoose.Schema({
 			quantity: { type: Number }
 		}
 	],
-<<<<<<< HEAD
-	stories:[
-		{		
-			 img_depressor:{type:String},
-			 img_reliever:{type:String},
-			 story:{type:String},
-			 email:{type:String},
-			 category:{type:String},
-			 Image:{type:String}
-=======
 	stories: [
 		{
 			story_id: { type: String },
@@ -161,7 +151,6 @@ const employeeSchema = new mongoose.Schema({
 				comment: { type: String }
 
 			}]
->>>>>>> ca0a22cab1be5d7ee1a9003121732729ce2d3489
 		}
 	],
 	profile_status: { type: Number },
