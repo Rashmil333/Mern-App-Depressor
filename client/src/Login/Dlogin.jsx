@@ -24,7 +24,7 @@ const Dlogin = () => {
 		validation();
 		e.preventDefault();
 		const { email, pass } = state;
-		const res = await fetch("/login", {
+		const res = await fetch("https://mern-app-depressor.onrender.com/login", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -49,8 +49,8 @@ const Dlogin = () => {
 		else if (res.status == 500) {
 			setwelcome(true);
 			alert("Login Successfull");
-			history.push("/chat")
-			window.location.reload();
+			// history.push("/chat")
+			// window.location.reload();
 
 		}
 		else {

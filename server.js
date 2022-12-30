@@ -879,7 +879,7 @@ app.post("/login", async (req, res) => {
           expires: new Date(Date.now() + 3000000000),
           httpOnly: true
         });
-        res.render("index");
+        res.send("passwords are matched.");
         res.status(200);
         const login_status = await Register.findOneAndUpdate({ email: email }, { $set: { login_status: 1 } });
 
