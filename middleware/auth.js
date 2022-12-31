@@ -18,7 +18,7 @@ const auth=async(req,res,next)=>{
 			throw new Error("User not found");
 		}
 		else{
-			nsole.log('1',"hhh->>>>>>");
+			console.log('1',"hhh->>>>>>");
 				req.token=token;
 				req.rootUser=rootUser;
 				req.userID=rootUser._id;
