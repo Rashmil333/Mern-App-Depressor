@@ -34,7 +34,7 @@ const Dlogin = () => {
 			})
 		});
 
-
+		console.log(res.status);
 		console.log(res.status);
 		if (res.status == 201) {
 			alert("Invalid Credentials");
@@ -46,10 +46,10 @@ const Dlogin = () => {
 			state.email = "";
 			state.pass = "";
 		}
-		else if (res.status == 500) {
+		else if (res.status == 200) {
 			setwelcome(true);
 			alert("Login Successfull");
-			// history.push("/chat")
+			// history.push("/chat")	
 			// window.location.reload();
 
 		}

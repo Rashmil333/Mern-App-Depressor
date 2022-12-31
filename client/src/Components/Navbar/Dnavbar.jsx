@@ -29,6 +29,7 @@ import {
   NavLink,
 } from 'reactstrap';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { AUTH, getuserData, SLTEST } from '../../constant';
 
 const useStyles = makeStyles({
   list: {
@@ -236,13 +237,17 @@ const Dnavbar = (props) => {
   }
 
   const getdata = async () => {
-    const res = await fetch("/getdata", {
+    console.log(getuserData);
+    const res = await fetch("https://mern-app-depressor.onrender.com/getdata", {
       method: "GET",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Authorization":`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGE2NjgzYTc3ZmNlOTA0OWM2ZTlmMzAiLCJpYXQiOjE2NzI0Nzc5MDN9.zpK_Vt_EM4vyBkVqp4oyAv3AwIzx_lErD9QTr29I3VY`,
+        "Content-Type": "application/json",
+        "Cookie":"jwtoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGE2NjgzYTc3ZmNlOTA0OWM2ZTlmMzAiLCJpYXQiOjE2NzI0Nzc5MDN9.zpK_Vt_EM4vyBkVqp4oyAv3AwIzx_lErD9QTr29I3VY"
       },
-      credentials: "include"
+      
+      // credentials: "include"
 
     });
     const data = await res.json();
@@ -266,7 +271,7 @@ const Dnavbar = (props) => {
   const auth = async (e) => {
     const link = e.target.value;
     e.preventDefault();
-    const res = await fetch("/auth", {
+    const res = await fetch(AUTH, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -291,7 +296,7 @@ const Dnavbar = (props) => {
     const link = e.target.value;
     e.preventDefault();
 
-    const res = await fetch("/sltest", {
+    const res = await fetch(SLTEST, {
       method: "GET",
       headers: {
         Accept: "application/json",

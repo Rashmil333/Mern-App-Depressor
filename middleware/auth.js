@@ -3,7 +3,12 @@ const Register=require("../models/register");
 
 const auth=async(req,res,next)=>{
 	try{
-		const token=req.cookies.jwt;
+		// const token=req.cookies.jwt;
+		const token=req.headers['authorization'];
+		console.log(token);
+		if(token){
+			token=token.split(' ')[1];
+		}
 		const verifyUser=jwt.verify(token,process.env.SECRET_KEY);
 		// console.log(verifyUser);
 		const rootUser=await Register.findOne({_id:verifyUser._id,"tokens.token":token});
