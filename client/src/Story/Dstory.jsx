@@ -13,6 +13,7 @@ import styled from "styled-components";
 import "@tensorflow/tfjs-backend-cpu";
 //import "@tensorflow/tfjs-backend-webgl";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
+import { addStory, get, getAllData, getuserData, post } from "../constant";
 
 const ObjectDetectorContainer = styled.div`
   display: flex;
@@ -99,16 +100,9 @@ const Dstory = () => {
   const getalldata = async () => {
 
 
-    const email = "allusers@gmail.com"
-    const res = await fetch("/getalldata", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email
-      })
-    });
+    const email = "allusers@gmail.com";
+    const variables={email};
+    const res = await fetch(getAllData, post(variables));
 
 
     const data = await res.json();
@@ -133,16 +127,8 @@ const Dstory = () => {
     const db_email = "allusers@gmail.com";
 
     const { email, story, photoo } = note;
-
-    const res = await fetch("/addstory", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        email, photoo, img_depressor, db_email, story, category
-      })
-    });
+    const variables={ email, photoo, img_depressor, db_email, story, category};
+    const res = await fetch(addStory, post(variables));
     console.log(res);
 
     // const data = await res.json();
@@ -235,15 +221,7 @@ const Dstory = () => {
   const getdata = async () => {
 
 
-    const res = await fetch("/getdata", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include"
-
-    });
+    const res = await fetch(getuserData, get());
     const data = await res.json();
     console.log(data);
 

@@ -8,6 +8,7 @@ import Dprofilecard from "./ProfileCard/Dprofilecard";
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import GroupAddRoundedIcon from '@mui/icons-material/GroupAddRounded';
+import { createprofile, get, getAllData, getuserData, post } from "../constant";
 
 
 const Dprofile = () => {
@@ -35,18 +36,10 @@ const Dprofile = () => {
 	const getalldata = async (e) => {
 
 		settoggle(!toggle);
-		const email = "allusers@gmail.com"
-		const res = await fetch("/getalldata", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				email
-			})
-		});
-
-
+		const email = "allusers@gmail.com";
+		const variables={email};
+		const res = await fetch(getAllData, post(variables));
+		
 		const data = await res.json();
 		// console.log(data);
 		// console.log(data.depressors);
@@ -79,15 +72,7 @@ const Dprofile = () => {
 
 	}
 	const getdata = async () => {
-		const res = await fetch("/getdata", {
-			method: "GET",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			},
-			credentials: "include"
-
-		});
+		const res = await fetch(getuserData, get());
 		const data = await res.json();
 		console.log(data);
 
@@ -196,16 +181,8 @@ const Dprofile = () => {
 
 			const { img, description, age } = state;
 			const type = "first_send";
-
-			const res = await fetch("/profile", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					name_d, mobile_no, email_id, hobbies, work, category, img, age, type, description
-				})
-			});
+			const variables={name_d, mobile_no, email_id, hobbies, work, category, img, age, type, description};
+			const res = await fetch(createprofile, post(variables));
 			console.log(res);
 		}
 	}

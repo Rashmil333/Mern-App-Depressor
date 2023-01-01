@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import Dcartitem from "./CartItem/Dcartitem";
 import Dfooter from "../Components/Footer/Dfooter";
 import Dorderitem from "./Dorderitem";
+import { get, getuserData } from '../constant';
 
 const Dcart = () => {
 	const [state, setstate] = useState("one");
@@ -19,15 +20,7 @@ const Dcart = () => {
 	const getdata = async () => {
 
 
-		const res = await fetch("/getdata", {
-			method: "GET",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			},
-			credentials: "include"
-
-		});
+		const res = await fetch(getuserData, get());
 		const data = await res.json();
 		console.log(data.cart);
 		setcart_item(data.cart);

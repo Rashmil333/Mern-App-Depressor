@@ -29,12 +29,25 @@ import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Progress } from 'reactstrap';
 import { NavLink } from "reactstrap";
+import { deletchatsAll, deletchatsLast, get, getuserData, post, SLTEST, updateChats, updatechats } from '../constant';
 
 
 let socket;
 
-const CONNECTION_PORT = openSocket('http://localhost:3002', { transports: ['websocket'] });
+const CONNECTION_PORT = openSocket('https://mern-app-depressor.onrender.com', { transports: ['websocket'] });
 
+export const Socketio = io('https://mern-app-depressor.onrender.com', {
+	transports: ['websocket', 'polling'],
+	autoConnect: false,
+	reconnection: true,
+  });
+  if (localStorage.getItem('authorization')) {
+	Socketio.open();
+  }
+
+  Socketio.on("connect", () => {
+	console.log('>>>>',Socketio.connected); // true
+  });
 
 const Dchat = () => {
 	// const [chatss, setchatss] = useState();
@@ -61,22 +74,15 @@ const Dchat = () => {
 			},
 		};
 
-		await socket.emit("send_message", messageContent);
+		await Socketio.emit("send_message", messageContent);
 
 		setinputlist("");
 
 
 		e.preventDefault();
 		const { chat } = state;
-		const res = await fetch("/updatechats", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				chat, member
-			})
-		});
+		const variables={chat, member};
+		const res = await fetch(updateChats, post(variables));
 		console.log(res);
 	}
 
@@ -95,34 +101,19 @@ const Dchat = () => {
 			},
 		};
 
-		await socket.emit("send_message", messageContent);
+		await Socketio.emit("send_message", messageContent);
 
 		setinputlist("");
 
 
 
 		const chat = id;
-		const res = await fetch("/updatechats", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				chat, member
-			})
-		});
+		const variables={chat, member};
+		const res = await fetch(updateChats,post(variables));
 		console.log(res);
 	}
 	const getdata = async () => {
-		const res = await fetch("/getdata", {
-			method: "GET",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			},
-			credentials: "include"
-
-		});
+		const res = await fetch(getuserData, get());
 		const data = await res.json();
 		if (data.mydepressor_status === 1) {
 			console.log(data.mydepressor[0].email)
@@ -154,15 +145,7 @@ const Dchat = () => {
 		const link = e.target.value;
 		e.preventDefault();
 
-		const res = await fetch("/sltest", {
-			method: "GET",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			},
-			credentials: "include"
-
-		});
+		const res = await fetch(SLTEST,get());
 
 
 
@@ -262,15 +245,7 @@ const Dchat = () => {
 	}
 	const deletechatsall = async () => {
 		setchats([]);
-		const res = await fetch("/deletechatsall", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-
-			})
-		});
+		const res = await fetch(deletchatsAll, post({}));
 	}
 
 	const deletechatslast = async () => {
@@ -281,15 +256,7 @@ const Dchat = () => {
 			})
 		})
 
-		const res = await fetch("/deletechatslast", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-
-			})
-		});
+		const res = await fetch(deletchatsLast, post());
 		console.log(res);
 	}
 
@@ -307,7 +274,7 @@ const Dchat = () => {
 			},
 		};
 
-		await socket.emit("send_message", messageContent);
+		await Socketio.emit("send_message", messageContent);
 
 		setinputlist("");
 
@@ -344,9 +311,9 @@ const Dchat = () => {
 	useEffect(() => {
 		getdata();
 	}, []);
-	useEffect(() => {
-		socket = io(CONNECTION_PORT);
-	}, [CONNECTION_PORT]);
+	// useEffect(() => {
+	// 	socket = io(CONNECTION_PORT);
+	// }, [CONNECTION_PORT]);
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [room, setRoom] = useState("");
 	const [userName, setUserName] = useState("");
@@ -356,7 +323,7 @@ const Dchat = () => {
 	const [messageList, setMessageList] = useState([]);
 
 	useEffect(() => {
-		socket.on("receive_message", (data) => {
+		Socketio.on("receive_message", (data) => {
 			setchats([...chats, data]);
 
 		});
@@ -365,7 +332,7 @@ const Dchat = () => {
 		setRoom(value);
 		console.log(room)
 		setLoggedIn(true);
-		socket.emit("join_room", room);
+		Socketio.emit("join_room", room);
 	};
 
 	const sendMessage = async () => {
@@ -377,7 +344,7 @@ const Dchat = () => {
 			},
 		};
 
-		await socket.emit("send_message", messageContent);
+		await Socketio.emit("send_message", messageContent);
 		setMessageList([...messageList, messageContent.content]);
 		setMessage("");
 	};

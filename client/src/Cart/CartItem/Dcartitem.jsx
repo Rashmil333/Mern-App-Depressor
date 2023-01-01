@@ -4,6 +4,7 @@ import Dbuyitemopen from "./Dbuyitemopen";
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { useDispatch } from "react-redux";
 import Removecart from "../../actions/Removecart";
+import { deletetocart, post } from '../../constant';
 
 const Dcarditem = (props) => {
 
@@ -24,15 +25,8 @@ const Dcarditem = (props) => {
 		const img = props.img;
 		const product_name = props.type;
 		const cost = props.cost;
-		const res = await fetch("/deletetocart", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				product_name, cost, img
-			})
-		});
+		const variables={product_name, cost, img};
+		const res = await fetch(deletetocart, post(variables));
 
 		console.log(res.status);
 		if (res.status === 200) {

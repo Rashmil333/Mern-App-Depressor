@@ -3,6 +3,7 @@ import Dnavbar from "../Components/Navbar/Dnavbar";
 import Box from '@mui/material/Box';
 
 import Modal from '@mui/material/Modal';
+import { post, SVM } from "../constant";
 
 const style = {
   position: 'absolute',
@@ -34,16 +35,8 @@ const Dhealthstatus = () => {
     Array.push(connection * 0.1);
     Array.push(insight * 0.1);
     Array.push(purpose * 0.1);
-
-    const res = await fetch("/svm", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        newarray: Array
-      })
-    });
+    const variables={newarray: Array};
+    const res = await fetch(SVM,post(variables));
     const result = await res.json();
     console.log(result);
     if (result === 1) {

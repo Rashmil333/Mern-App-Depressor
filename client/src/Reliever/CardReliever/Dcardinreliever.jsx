@@ -2,6 +2,7 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 import { NavLink } from "reactstrap";
+import { get, SLTEST } from "../../constant";
 
 
 const Dcardinreliever = (props) => {
@@ -16,15 +17,7 @@ const Dcardinreliever = (props) => {
 		const link = e.target.value;
 		e.preventDefault();
 
-		const res = await fetch("/sltest", {
-			method: "GET",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			},
-			credentials: "include"
-
-		});
+		const res = await fetch(SLTEST,get());
 		console.log(res.status);
 		if (res.status === 200) {
 

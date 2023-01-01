@@ -2491,19 +2491,11 @@ font-weight: bolder;
 *{
 	scroll-behavior: smooth
 }
-<<<<<<< HEAD
-/* .blacksky{
-	width:100vw;
-	height:100vh;
-	background:linear-gradient(to bottom,#094b65,black,black);
-} */
-=======
 .blacksky{
 	width:100vw;
 	height:100vh;
 	background:linear-gradient(to bottom,#094b65,black,black);
 }
->>>>>>> ca0a22cab1be5d7ee1a9003121732729ce2d3489
 @font-face {
 	font-family: "EuroStyle Normal";
 	src: local("EuroStyle Normal"),

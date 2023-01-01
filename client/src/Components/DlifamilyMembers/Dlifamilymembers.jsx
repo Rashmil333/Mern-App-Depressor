@@ -7,6 +7,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { deletemy_members, post } from "../../constant";
    
 
 const Dlifamilymembers=(props)=>{
@@ -25,16 +26,9 @@ const Dlifamilymembers=(props)=>{
    	 props.filto(props.id,props.type,props.mobile_receiver)
     e.preventDefault();
     handleClose();
-    const member_email=props.emails
-    const res=await fetch("/deletemy_members",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        member_email
-      })
-    });
+    const member_email=props.emails;
+    const variables={ member_email};
+    const res=await fetch(deletemy_members,post(variables));
     console.log(res.status)
    
   }

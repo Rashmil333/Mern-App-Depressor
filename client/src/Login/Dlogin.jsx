@@ -29,8 +29,9 @@ const Dlogin = () => {
 			email,pass
 		}
 		const res = await fetch(login, post(variables));
+		const parsedRes=await res?.json();
 		// console.log()
-		console.log(res.status);
+		console.log(parsedRes);
 		console.log(res.status);
 		if (res.status == 201) {
 			alert("Invalid Credentials");
@@ -47,7 +48,7 @@ const Dlogin = () => {
 			alert("Login Successfull");
 			// history.push("/chat")	
 			// window.location.reload();
-			localStorage.setItem('authorization',res?.token);
+			localStorage.setItem('authorization',parsedRes?.token);
 
 		}
 		else {

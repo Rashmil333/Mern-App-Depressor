@@ -80,7 +80,7 @@ app.get("/logout", auth, async (req, res) => {
     res.clearCookie("jwt");
     console.log("logout sucessfully");
     res.status(200);
-    res.render("index");
+    // res.render("index");
 
   } catch (err) {
     res.status(500).send(error);

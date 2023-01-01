@@ -5,21 +5,15 @@ import Button from '@material-ui/core/Button';
 import Dfooter from "../Components/Footer/Dfooter";
 import Daboutcard from "./AboutCard/Daboutcard";
 import my from "../images/my.jpg"
+import { post, update_password } from "../constant";
 const Dsetting = () => {
 
 	const [pass, setpass] = useState();
 	const [repass, setrepass] = useState();
 
 	const changepass = async () => {
-		const res = await fetch("/update_password", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				pass, repass
-			})
-		});
+		const variables={pass, repass};
+		const res = await fetch(update_password, post(variables));
 		setpass("");
 		setrepass("");
 		if (res.status === 200) {

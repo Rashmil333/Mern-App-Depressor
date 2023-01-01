@@ -1,6 +1,7 @@
 import React from "react";
 import Button from '@material-ui/core/Button';
 import SendIcon from '@material-ui/icons/Send';
+import { post, updateChats } from "../../constant";
 
 const Dlibutton=(props)=>{
 
@@ -8,15 +9,8 @@ const Dlibutton=(props)=>{
 	props.show(props.text);
     const chat=props.text;
     const member=props.memberss;
-    const res=await fetch("/updatechats",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        chat,member
-      })
-    });
+    const variables={   chat,member};
+    const res=await fetch(updateChats,post(variables));
 
    }
 

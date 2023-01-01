@@ -5,6 +5,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import { useHistory } from "react-router-dom";
+import { getAllData, post, sahyog_memory } from "../../constant";
 const Dsahyog = (props) => {
 
 
@@ -289,16 +290,9 @@ const Dsahyog = (props) => {
 
 	const getalldata = async (e) => {
 
-		const email = "allusers@gmail.com"
-		const res = await fetch("/getalldata", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				email
-			})
-		});
+		const email = "allusers@gmail.com";
+		const variables={email};
+		const res = await fetch(getAllData, post(variables));
 
 
 		const data = await res.json();
@@ -533,16 +527,8 @@ const Dsahyog = (props) => {
 
 
 
-
-			const res = await fetch("/sahyog_memory", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					key, value
-				})
-			});
+			const variables={key, value};
+			const res = await fetch(sahyog_memory,post(variables));
 
 
 

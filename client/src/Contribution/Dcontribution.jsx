@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import Dfooter from "../Components/Footer/Dfooter";
 import Dcontributeprobdiv from "./Dcontributeprobdiv";
 import Dcontributiondata from "./Dcontributiondata";
+import { getAllData, post, updateproblem } from '../constant';
 
 
 const Dcontribution = () => {
@@ -29,16 +30,8 @@ const Dcontribution = () => {
 		e.preventDefault();
 		const { email, name, phoneno, img, bank_acc, problem, address, nearest_res } = state;
 		const email_sender = "allusers@gmail.com"
-
-		const res = await fetch("/updateproblem", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				email_sender, email, name, phoneno, img, bank_acc, problem, address, nearest_res
-			})
-		});
+		const variables={email_sender, email, name, phoneno, img, bank_acc, problem, address, nearest_res};
+		const res = await fetch(updateproblem, post(variables));
 		console.log(res.status);
 		if (res.status === 200) {
 			alert('Problem is posted!')
@@ -51,16 +44,9 @@ const Dcontribution = () => {
 	}
 
 	const getalldata = async () => {
-		const email = "allusers@gmail.com"
-		const res = await fetch("/getalldata", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				email
-			})
-		});
+		const email = "allusers@gmail.com";
+		const variables={email};
+		const res = await fetch(getAllData, post(variables));
 		const data = await res.json();
 		setproblems(data.user_problems);
 	}

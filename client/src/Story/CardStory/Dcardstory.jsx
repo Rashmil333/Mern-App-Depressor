@@ -6,6 +6,7 @@ import './storyCard.css'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 import Sentiment from 'sentiment';
 import Heart from '../../Components/HeartComponent/Heart';
+import { findstorygetdata, post, postCommentStory } from '../../constant';
 
 
 const Dcardstory = (props) => {
@@ -25,15 +26,8 @@ const Dcardstory = (props) => {
 		else {
 			const comment = inputVal;
 			setInputVal('');
-			const res = await fetch("/postCommentStory", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					ID: props.story_id, Comment: comment, Commentor: MyData[0].name, Commentor_img: MyData[0].profile_img
-				})
-			});
+			const variables={ID: props.story_id, Comment: comment, Commentor: MyData[0].name, Commentor_img: MyData[0].profile_img};
+			const res = await fetch(postCommentStory, post(variables));
 			setInputVal('')
 			console.log(res.status);
 		}
@@ -41,15 +35,8 @@ const Dcardstory = (props) => {
 
 	const getAllComments = async () => {
 		toggle();
-		const res = await fetch("/findstorygetdata", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				ID: props.story_id,
-			})
-		});
+		const variables={ID: props.story_id};
+		const res = await fetch(findstorygetdata, post(variables));
 		const data = await res.json();
 		console.log('>>>>', data.Comments);
 		setCommentsData(data.Comments);

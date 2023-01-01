@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Dnavbar from "../Components/Navbar/Dnavbar";
 import Button from '@material-ui/core/Button';
 import Dfooter from "../Components/Footer/Dfooter";
+import { post, register } from "../constant";
 
 
 const Dsignin = () => {
@@ -44,15 +45,8 @@ const Dsignin = () => {
 
 			e.preventDefault();
 			const { name, phoneno, email, pass, conpass } = state;
-			const res = await fetch("/register", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					name, phoneno, email, pass, conpass
-				})
-			});
+			const variables={name, phoneno, email, pass, conpass};
+			const res = await fetch(register, post(variables));
 
 			const data = await res.json();
 			if (res.status === 200) {

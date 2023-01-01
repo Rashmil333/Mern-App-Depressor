@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import { useDispatch } from "react-redux";
 import addtocart from "../../actions/Addtocart";
+import { addtoCart, post } from "../../constant";
 
 
 
@@ -20,15 +21,8 @@ const Dbuycard = (props) => {
 		const img = props.img;
 		const product_name = props.type;
 		const cost = props.cost;
-		const res = await fetch("/addtocart", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				product_name, cost, img,
-			})
-		});
+		const variables={product_name, cost, img};
+		const res = await fetch(addtoCart, post(variables));
 
 		const data = await res.json();
 

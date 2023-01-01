@@ -4,6 +4,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CallIcon from '@mui/icons-material/Call';
 import CakeIcon from '@mui/icons-material/Cake';
 import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
+import { post, updaterelievers } from "../../constant";
 const Dprofilecard = (props) => {
 
 	const [set, seta] = useState(true);
@@ -16,15 +17,8 @@ const Dprofilecard = (props) => {
 		const name = props.name;
 		const type = props.type
 		const phone = props.mobile;
-		const res = await fetch("/updaterelievers", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				email, name, img, phone, type
-			})
-		});
+		const variables={email, name, img, phone, type};
+		const res = await fetch(updaterelievers, post(variables));
 
 	}
 

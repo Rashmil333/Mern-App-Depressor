@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import {useHistory} from "react-router-dom"
+import { post, register } from "./constant";
 
 function App(){
 
@@ -18,15 +19,8 @@ function App(){
   const postdata=async(e)=>{
     e.preventDefault();
     const {name,phoneno,email,pass,conpass}=state;
-    const res=await fetch("/register",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        name,phoneno,email,pass,conpass
-      })
-    });
+    const variables={  name,phoneno,email,pass,conpass};
+    const res=await fetch(register,post(variables));
 
     const data=await res.json();
 

@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import Button from '@material-ui/core/Button';
 import {Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { placeOrder, post } from '../constant';
 
 
 const Dbuyitemopen=(props)=>{
@@ -35,15 +36,8 @@ const Dbuyitemopen=(props)=>{
     const product_name=props.type;
     const cost=props.cost;
     const img=props.img;
-    const res=await fetch("/placeorder",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        name,phoneno,address,email,cost,product_name,img,quantity
-      })
-    });
+	const variables={     name,phoneno,address,email,cost,product_name,img,quantity};
+    const res=await fetch(placeOrder,post(variables));
    
 
    

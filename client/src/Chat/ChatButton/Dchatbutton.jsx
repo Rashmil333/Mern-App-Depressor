@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import { deletechats, post } from '../../constant';
 
 const Dchatbutton=(props)=>{
 	const [delsender,setdelsender]=useState(1);
@@ -27,16 +28,8 @@ const Dchatbutton=(props)=>{
 
     const chat=props.text;
     const type="send"
-   
-    const res=await fetch("/deletechats",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        chat,type
-      })
-    });
+	const variables={chat,type};
+    const res=await fetch(deletechats,post(variables));
 	}
 
 	const deletechat_received=async()=>{
@@ -44,16 +37,8 @@ const Dchatbutton=(props)=>{
 
     const chat=props.text;
     const type="receive"
-   
-    const res=await fetch("/deletechats",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        chat,type
-      })
-    });
+	const variables={  chat,type};
+    const res=await fetch(deletechats,post(variables));
 	}
 
 	const text=()=>{

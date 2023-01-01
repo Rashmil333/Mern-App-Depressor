@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import Button from '@material-ui/core/Button';
 import {Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { deleteorder, post } from '../constant';
 
 
 const Dorderitem=(props)=>{ 
@@ -19,15 +20,8 @@ const Dorderitem=(props)=>{
     const cost=props.cost;
     const phone=props.phone;
     const address=props.address;
-    const res=await fetch("/deleteorder",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-      	product_name,cost,img,phone,address
-      })
-    });
+    const variables={	product_name,cost,img,phone,address};
+    const res=await fetch(deleteorder,post(variables));
 
     const data=await res.json();
 

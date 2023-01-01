@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import Button from '@material-ui/core/Button';
 import {useHistory} from "react-router-dom";
+import { post, profile_update } from "../constant";
 
 const Dprofilesown=(props)=>{
 
@@ -45,15 +46,8 @@ const history=useHistory();
   	else{
   		   const {img,description,age,name_d,mobile_no}=state;
     const type="update";
-    const res=await fetch("/profile_update",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-         name_d,mobile_no,hobbies,work,category,img,age,description,type
-      })
-    });    
+	const variables={ name_d,mobile_no,hobbies,work,category,img,age,description,type};
+    const res=await fetch(profile_update,post(variables));    
 
     console.log(res.status)
     if(res.status==200){

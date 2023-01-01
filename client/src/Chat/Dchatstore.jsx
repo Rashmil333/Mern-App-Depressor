@@ -29,6 +29,7 @@ import Dfooter from "./Dfooter";
 import Dlifamilymembers from "./Dlifamilymembers";
 import DeleteIcon from '@material-ui/icons/Delete';
 import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
+import { deletchatsAll, deletchatsLast, get, getuserData, post, updatechats } from '../constant';
 
 
 
@@ -51,15 +52,8 @@ const Dchat=()=>{
   
     e.preventDefault();
     const {chat}=state;
-    const res=await fetch("/updatechats",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-        chat,member
-      })
-    });
+	const variables={chat,member};
+    const res=await fetch(updatechats,post(variables));
 
    
     
@@ -71,15 +65,7 @@ const Dchat=()=>{
   const getdata=async()=>{
     
     
-    const res=await fetch("/getdata",{
-      method:"GET",
-       headers:{
-        Accept:"application/json",
-        "Content-Type":"application/json"
-      },
-      credentials:"include"
-     
-    });
+    const res=await fetch(getuserData,get());
     const data=await res.json();
     if(data.mydepressor_status==1){
     	 console.log(data.mydepressor[0].email)
@@ -174,15 +160,7 @@ const Dchat=()=>{
 	}
 	const deletechatsall=async()=>{
 	setchats([]);
-    const res=await fetch("/deletechatsall",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-     	
-      })
-    });
+    const res=await fetch(deletchatsAll,post({}));
 	}
 
 	const deletechatslast=async()=>{
@@ -193,15 +171,7 @@ const Dchat=()=>{
 			})
 		})
 	
-    const res=await fetch("/deletechatslast",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({
-     	
-      })
-    });
+    const res=await fetch(deletchatsLast,post({}));
 	}
 
 	const displaymessage=()=>{

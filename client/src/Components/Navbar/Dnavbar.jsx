@@ -29,7 +29,7 @@ import {
   NavLink,
 } from 'reactstrap';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { AUTH, get, getuserData, SLTEST } from '../../constant';
+import { AUTH, get, getuserData, logout, SLTEST } from '../../constant';
 
 const useStyles = makeStyles({
   list: {
@@ -226,14 +226,12 @@ const Dnavbar = (props) => {
   const postdata = async (e) => {
 
     e.preventDefault();
-    const res = await fetch("/logout", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-    });
+    const res = await fetch(logout, get());
     console.log(res);
     history.push("/login");
+    if(res.status==200){
+      localStorage.removeItem('authorization');
+    }
   }
 
   const getdata = async () => {
@@ -260,15 +258,7 @@ const Dnavbar = (props) => {
   const auth = async (e) => {
     const link = e.target.value;
     e.preventDefault();
-    const res = await fetch(AUTH, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include"
-
-    });
+    const res = await fetch(AUTH, get());
     console.log(res.status);
     if (res.status === 200) {
 
@@ -285,15 +275,7 @@ const Dnavbar = (props) => {
     const link = e.target.value;
     e.preventDefault();
 
-    const res = await fetch(SLTEST, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include"
-
-    });
+    const res = await fetch(SLTEST, get());
     console.log(res.status);
     if (res.status === 200) {
       history.push(link);
