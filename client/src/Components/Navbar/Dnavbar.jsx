@@ -29,7 +29,7 @@ import {
   NavLink,
 } from 'reactstrap';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { AUTH, getuserData, SLTEST } from '../../constant';
+import { AUTH, get, getuserData, SLTEST } from '../../constant';
 
 const useStyles = makeStyles({
   list: {
@@ -237,19 +237,8 @@ const Dnavbar = (props) => {
   }
 
   const getdata = async () => {
-    console.log(getuserData);
-    const res = await fetch("https://mern-app-depressor.onrender.com/getdata", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Authorization":`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGE2NjgzYTc3ZmNlOTA0OWM2ZTlmMzAiLCJpYXQiOjE2NzI0Nzc5MDN9.zpK_Vt_EM4vyBkVqp4oyAv3AwIzx_lErD9QTr29I3VY`,
-        "Content-Type": "application/json",
-        "Cookie":"jwtoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGE2NjgzYTc3ZmNlOTA0OWM2ZTlmMzAiLCJpYXQiOjE2NzI0Nzc5MDN9.zpK_Vt_EM4vyBkVqp4oyAv3AwIzx_lErD9QTr29I3VY"
-      },
-      
-      // credentials: "include"
 
-    });
+    const res = await fetch(getuserData, get());
     const data = await res.json();
     console.log(data);
     setuserdata(data);

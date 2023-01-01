@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom"
 import Dnavbar from "../Components/Navbar/Dnavbar";
 import Button from '@material-ui/core/Button';
 import Dfooter from "../Components/Footer/Dfooter";
+import { login, post } from "../constant";
 
 
 const Dlogin = () => {
@@ -24,16 +25,11 @@ const Dlogin = () => {
 		validation();
 		e.preventDefault();
 		const { email, pass } = state;
-		const res = await fetch("https://mern-app-depressor.onrender.com/login", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				email, pass
-			})
-		});
-
+		const variables={
+			email,pass
+		}
+		const res = await fetch(login, post(variables));
+		// console.log()
 		console.log(res.status);
 		console.log(res.status);
 		if (res.status == 201) {
@@ -51,6 +47,7 @@ const Dlogin = () => {
 			alert("Login Successfull");
 			// history.push("/chat")	
 			// window.location.reload();
+			localStorage.setItem('authorization',res?.token);
 
 		}
 		else {
