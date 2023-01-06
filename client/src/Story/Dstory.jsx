@@ -194,7 +194,7 @@ const Dstory = () => {
       var markedCheckbox = document.getElementsByName('check');
       for (var checkbox of markedCheckbox) {
         if (checkbox.checked) {
-          temma = temma + " " + "#" + checkbox.value;
+          temma = temma + ' ' + '#' + checkbox.value;
           setcategory(temma);
         }
       }

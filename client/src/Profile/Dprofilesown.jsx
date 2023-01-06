@@ -28,19 +28,19 @@ const history=useHistory();
   	var name_n =document.getElementById('name').value;
   	var phone_n =document.getElementById('phone').value;
   	var code_n =document.getElementById('code').value;
-  	if(name_n==""){
+  	if(name_n===""){
   		alert("Please enter the name please.!!!");
   	}
-  	else if(url==""){
+  	else if(url===""){
   	alert("please give the url of your profile image. ")
   	}
-  	else if(description==""){
+  	else if(description===""){
   	alert("Please tell us about yourself")
   	}
-  	else if(age_n==""){
+  	else if(age_n===""){
   	alert("Please enter the image");
   	}
-  	else if(code_n==""){
+  	else if(code_n===""){
   	alert("Please enter the code. Without code the data is not updated properly.");
   	}
   	else{
@@ -50,7 +50,7 @@ const history=useHistory();
     const res=await fetch(profile_update,post(variables));    
 
     console.log(res.status)
-    if(res.status==200){
+    if(res.status===200){
     	alert("Your profile is updated successfully.")
     	window.location.reload();
     }
@@ -79,19 +79,19 @@ const history=useHistory();
   	var name_n =document.getElementById('name').value;
   	var phone_n =document.getElementById('phone').value;
   	var code_n =document.getElementById('code').value;
-  	if(name_n==""){
+  	if(name_n===""){
   		alert("Please enter the name please.!!!");
   	}
-  	else if(url==""){
+  	else if(url===""){
   	alert("please give the url of your profile image. ")
   	}
-  	else if(description==""){
+  	else if(description===""){
   	alert("Please tell us about yourself")
   	}
-  	else if(age_n==""){
+  	else if(age_n===""){
   	alert("Please enter the image");
   	}
-  	else if(code_n==""){
+  	else if(code_n===""){
   	alert("Please enter the code. Without code the data is not updated properly.");
   	}
 		
@@ -119,7 +119,7 @@ const history=useHistory();
 	}
 	return(<>
 	<p id="text_white">{work}{category}{hobbies}</p>
-	{show==false?
+	{show===false?
 	<div>
 		<br/><br/>
 		<div className="container" id="text_white">

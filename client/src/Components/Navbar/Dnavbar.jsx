@@ -229,7 +229,7 @@ const Dnavbar = (props) => {
     const res = await fetch(logout, get());
     console.log(res);
     history.push("/login");
-    if(res.status==200){
+    if (res.status == 200) {
       localStorage.removeItem('authorization');
     }
   }
@@ -389,10 +389,15 @@ const Dnavbar = (props) => {
 
         <NavbarBrand href="/" id="navbar_tab" >
           <ul>
+            <li>D</li>
+            <li>E</li>
             <li>P</li>
             <li>R</li>
             <li>E</li>
-            <li>M</li>
+            <li>S</li>
+            <li>S</li>
+            <li>O</li>
+            <li>R</li>
           </ul>
         </NavbarBrand>
 

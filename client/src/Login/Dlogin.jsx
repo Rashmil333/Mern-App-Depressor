@@ -25,47 +25,42 @@ const Dlogin = () => {
 		validation();
 		e.preventDefault();
 		const { email, pass } = state;
-		const variables={
-			email,pass
+		const variables = {
+			email, pass
 		}
 		const res = await fetch(login, post(variables));
-		const parsedRes=await res?.json();
+		const parsedRes = await res?.json();
 		// console.log()
 		console.log(parsedRes);
 		console.log(res.status);
-		if (res.status == 201) {
+		if (res.status === 201) {
 			alert("Invalid Credentials");
 			state.email = "";
 			state.pass = "";
 		}
-		else if (res.status == 400) {
+		else if (res.status === 400) {
 			alert("Invalid Credentials")
 			state.email = "";
 			state.pass = "";
 		}
-		else if (res.status == 200) {
+		else if (res.status === 200) {
 			setwelcome(true);
 			alert("Login Successfull");
-			// history.push("/chat")	
-			// window.location.reload();
-			localStorage.setItem('authorization',parsedRes?.token);
-
+			history.push("/chat")
+			window.location.reload();
+			localStorage.setItem('authorization', parsedRes?.token);
 		}
 		else {
 			alert("There is some problem.Please login again!!")
 		}
-
-
-
-
 	}
 	const validation = () => {
 		var email = document.getElementById('email').value;
 		var password = document.getElementById('password').value;
-		if (email == "") {
+		if (email === "") {
 			alert("Please enter the email!!!");
 		}
-		else if (password == "") {
+		else if (password === "") {
 			alert("Please enter the password!!!");
 		}
 	}
@@ -73,7 +68,7 @@ const Dlogin = () => {
 	return (<>
 		<Dnavbar />
 
-		{welcome == true ? <>
+		{welcome === true ? <>
 			<div className="container">
 				<div className="card" style={{ textAlign: 'center', marginTop: '20%' }}>
 

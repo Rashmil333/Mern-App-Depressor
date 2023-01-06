@@ -46,7 +46,7 @@ const Dbuycard = (props) => {
 					<b style={{ color: 'white' }}>{props.type}<br />
 						Rs {props.cost}</b><br />
 					<Button onClick={call} class="button7"> Buy</Button>
-					{show == true ? <Button class="button7" onClick={add_item}><AddIcon />cart</Button> : <Button class="button7"><AddIcon />cart</Button>}<br />
+					{show ===true ? <Button class="button7" onClick={add_item}><AddIcon />cart</Button> : <Button class="button7"><AddIcon />cart</Button>}<br />
 					{statement}
 					<br /><br />
 					<div style={{ display: 'flex' }}>

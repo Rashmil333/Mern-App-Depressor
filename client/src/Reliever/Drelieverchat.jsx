@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import Dnavbar from "../Components/Navbar/Dnavbar";
 import io from "socket.io-client";
-import openSocket from 'socket.io-client';
+// import openSocket from 'socket.io-client';
 import BuildIcon from '@material-ui/icons/Build';
 import Button from '@material-ui/core/Button';
 import Ddatadepress from "../Chat/Ddatadepress";
@@ -29,12 +29,12 @@ import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { Progress } from 'reactstrap';
 import { NavLink } from "reactstrap";
-import { deletchatsAll, deletchatsLast, get, getuserData, post, SLTEST, updateChats, updatechats } from '../constant';
+import { deletchatsAll, deletchatsLast, get, getuserData, post, SLTEST, updateChats } from '../constant';
 
 
-let socket;
+// let socket;
 
-const CONNECTION_PORT = openSocket('https://mern-app-depressor.onrender.com', { transports: ['websocket'] });
+// const CONNECTION_PORT = openSocket('https://mern-app-depressor.onrender.com', { transports: ['websocket'] });
 
 export const Socketio = io('https://mern-app-depressor.onrender.com', {
 	transports: ['websocket', 'polling'],
@@ -214,16 +214,16 @@ const Dchat = () => {
 		console.log(state);
 	}
 
-	const createemojibutton = (id) => {
-		var btn = document.createElement("BUTTON");
-		var t = document.createTextNode('&times;');
+	// const createemojibutton = (id) => {
+	// 	var btn = document.createElement("BUTTON");
+	// 	var t = document.createTextNode('&times;');
 
-		btn.appendChild(t);
-		document.getElementById('para').appendChild(btn);
+	// 	btn.appendChild(t);
+	// 	document.getElementById('para').appendChild(btn);
 
 
 
-	}
+	// }
 
 	const changethemee = (id) => {
 		if (id === 'red') {
@@ -450,7 +450,7 @@ const Dchat = () => {
 					</div>
 				</div>	 <br />
 				<RadioButtonCheckedIcon style={{ color: 'green' }} /> <span style={{ color: 'green' }}>Sending message to</span> {member_name}
-				{live == "" ? <>
+				{live ==="" ? <>
 					<span></span>
 					<span id="text_white">Start by selecting family member...</span>
 					<img src="https://media1.giphy.com/media/QZVECOeNpquEqnxzi3/giphy.gif" style={{ width: '150px' }} alt='pic' />
@@ -458,7 +458,7 @@ const Dchat = () => {
 				</>
 
 
-					: live[live.length - 1] == live[live.length - 2] ?
+					: live[live.length - 1] ===live[live.length - 2] ?
 						<img src="https://lh3.googleusercontent.com/proxy/G3Nad0G4hmU_0-Vjd2YMT3rumji8G3E0VjsEiTLYEv9_tFvVdHo1g_vaKPqIUUy3RsQJasN78BGgqN98ey3kTU9gtrWE6GAs9lHTZOcbdZH7oJfWR6vLTck-b_CCYQ" style={{ width: '150px' }} alt='' /> : <>
 							<span>......</span>
 							<span id="text_white">OOps!!Your family member is not live but still you can send

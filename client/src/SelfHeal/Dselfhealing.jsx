@@ -131,7 +131,7 @@ const Dselfhealing = () => {
 			<div className={toggler % 2 === 0 ? "col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12" : "col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"}>
 
 				<div className={themee === "red" ? "Dchatredbackground" : themee === "green" ? "Dchatgreenbackground" : themee === "yellow" ? "Dchatbackgroundyellow" : themee === "blue" ?
-					"Dchatbackgroundblue" : themee === "dodgerblue" ? "Dchatbackgroundskyblue" : null} style={{ color: 'white', height: '800px', color: 'grey' }}>
+					"Dchatbackgroundblue" : themee === "dodgerblue" ? "Dchatbackgroundskyblue" : null} style={{ color: 'white', height: '800px'}}>
 
 					{div === 1 ? <Dyogawhat /> : div === 2 ? <Dyogahistory /> : div === 3 ? <Dyogatypes /> : div === 4 ? <Dyogamyth /> : div === 5 ? <Dyogabenefits /> :
 						div === 6 ? <Dmedichit /> : div === 7 ? <Dmedibeni /> : div === 8 ? <Dmedihow /> : div === 9 ? <Dmedisci /> : div === 10 ? <Dboycotthabit /> : div === 11 ? <Dgoodhabit /> : null}

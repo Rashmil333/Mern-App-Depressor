@@ -46,7 +46,7 @@ const Dhomenew = () => {
 		<div style={{ backgroundColor: 'white', width: '100vw', overflow: 'hidden' }}>
 			<div class="header" id="header">
 				<div style={{ display: 'flex' }}>
-					<h3 id="text_poppins">PREM</h3>
+					<h3 id="text_poppins">Depressor</h3>
 				</div>
 
 			</div>

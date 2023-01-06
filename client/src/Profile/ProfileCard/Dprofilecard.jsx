@@ -33,12 +33,12 @@ const Dprofilecard = (props) => {
 			<div className="card" id="profile_card">
 				<div className="card-body" style={{ textAlign: 'center' }}>
 
-					{props.type == 'Reliever' ?
+					{props.type ==='Reliever' ?
 						<div class="diconr">
 							<span style={{ color: '#3e3c17', fontFamily: 'festive	', fontSize: '20px' }}>R</span>
 
 						</div> :
-						props.type == 'Both' ?
+						props.type ==='Both' ?
 							<div class="dicon">
 								<span style={{ color: '#3e3c17', fontFamily: 'festive	', fontSize: '20px' }}>B</span>
 
@@ -57,12 +57,12 @@ const Dprofilecard = (props) => {
 					<h3 style={{ color: 'white' }}>{props.name}</h3>
 					<p style={{ color: '#9b9aac' }}>Web developer</p>
 					{set}
-					{profile == true ?
+					{profile ===true ?
 						<Button id="arrowup" onClick={expand}>
 							<ExpandMoreIcon />
 						</Button>
 						:
-						profile == false ?
+						profile ===false ?
 
 							<Button id="arrowdown" onClick={expand}>
 								<ExpandMoreIcon />
@@ -70,7 +70,7 @@ const Dprofilecard = (props) => {
 
 
 					<p style={{ color: '#736fa0', fontSize: '15px', textTransform: 'uppercase' }}>{props.descript}</p>
-					{profile == true ? <div>
+					{profile ===true ? <div>
 
 
 						<p style={{ color: '#a799e2' }}><CallIcon style={{ marginRight: '5px' }} />{props.mobile}</p>
@@ -78,11 +78,11 @@ const Dprofilecard = (props) => {
 						<p style={{ color: '#a799e2' }}><SportsSoccerIcon style={{ marginRight: '5px' }} />{props.hobby}</p>
 
 
-						{props.hint == 1 ?
+						{props.hint ===1 ?
 							<Button class="button2">
 								<span style={{ color: 'white', fontWeight: 'bold' }}>
 									Already family member</span></Button> :
-							set == true ?
+							set ===true ?
 								<Button class="button3" onClick={update_rel_dep}>
 									Accepting as MY{props.type}</Button> :
 								<Button class="button2">

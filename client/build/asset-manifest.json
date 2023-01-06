@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e4982b97.chunk.css",
+    "main.js": "/static/js/main.4073750c.chunk.js",
+    "main.js.map": "/static/js/main.4073750c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.321692ce.js",
+    "runtime-main.js.map": "/static/js/runtime-main.321692ce.js.map",
+    "static/css/2.081f420c.chunk.css": "/static/css/2.081f420c.chunk.css",
+    "static/js/2.fc184f2c.chunk.js": "/static/js/2.fc184f2c.chunk.js",
+    "static/js/2.fc184f2c.chunk.js.map": "/static/js/2.fc184f2c.chunk.js.map",
+    "static/js/3.500a1c10.chunk.js": "/static/js/3.500a1c10.chunk.js",
+    "static/js/3.500a1c10.chunk.js.map": "/static/js/3.500a1c10.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.081f420c.chunk.css.map": "/static/css/2.081f420c.chunk.css.map",
+    "static/css/main.e4982b97.chunk.css.map": "/static/css/main.e4982b97.chunk.css.map",
+    "static/js/2.fc184f2c.chunk.js.LICENSE.txt": "/static/js/2.fc184f2c.chunk.js.LICENSE.txt",
+    "static/media/HomeAnalytics.css": "/static/media/Danger.d7d061cb.ttf",
+    "static/media/index.css": "/static/media/Spaceman.c71f4c26.TTF",
+    "static/media/bird1.c7e41938.png": "/static/media/bird1.c7e41938.png",
+    "static/media/bird2.09d09c7f.png": "/static/media/bird2.09d09c7f.png",
+    "static/media/chartanxiety.1f8bd9be.png": "/static/media/chartanxiety.1f8bd9be.png",
+    "static/media/chartanxietyage.44351f94.png": "/static/media/chartanxietyage.44351f94.png",
+    "static/media/chartdepressor.935036d9.png": "/static/media/chartdepressor.935036d9.png",
+    "static/media/chartdepressorage.676661e5.png": "/static/media/chartdepressorage.676661e5.png",
+    "static/media/chartsuicide.60cfdb1f.png": "/static/media/chartsuicide.60cfdb1f.png",
+    "static/media/forest.238eb9eb.png": "/static/media/forest.238eb9eb.png",
+    "static/media/my.ba2e4e02.jpg": "/static/media/my.ba2e4e02.jpg",
+    "static/media/pieanxiety.361d313e.png": "/static/media/pieanxiety.361d313e.png",
+    "static/media/piedepressors.8093d8e5.png": "/static/media/piedepressors.8093d8e5.png",
+    "static/media/rocks.0535a43a.png": "/static/media/rocks.0535a43a.png",
+    "static/media/water.706f9c68.png": "/static/media/water.706f9c68.png",
+    "static/media/whologo.19c13abc.png": "/static/media/whologo.19c13abc.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.321692ce.js",
+    "static/css/2.081f420c.chunk.css",
+    "static/js/2.fc184f2c.chunk.js",
+    "static/css/main.e4982b97.chunk.css",
+    "static/js/main.4073750c.chunk.js"
+  ]
+}

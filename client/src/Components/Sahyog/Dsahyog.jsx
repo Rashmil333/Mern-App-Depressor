@@ -331,7 +331,7 @@ const Dsahyog = (props) => {
 	}, [])
 
 	const sendchat = async () => {
-		if (text == undefined || text == '') {
+		if (text ===undefined || text ==='') {
 			return
 		}
 
@@ -458,14 +458,14 @@ const Dsahyog = (props) => {
 				var state = false;
 				memory.map((cvalue) => {
 					console.log(cvalue.key + "--->" + texta[i].slice(0))
-					if (cvalue.key == texta[i].slice(0)) {
+					if (cvalue.key ===texta[i].slice(0)) {
 						obj = texta[i].slice(0)
 						state = true
 						memory_get = true
 
 					}
 				})
-				if (state == false) {
+				if (state ===false) {
 					unidentified_word = texta[i]
 					break
 
@@ -479,7 +479,7 @@ const Dsahyog = (props) => {
 		var excl = false
 		console.log(subject)
 		for (var key in exclamatory) {
-			if (first_word == key) {
+			if (first_word ===key) {
 				console.log(key)
 				excl = key;
 				break;
@@ -491,7 +491,7 @@ const Dsahyog = (props) => {
 		// alert(exclamatory.length)
 		var first_letter = text_[0];
 		// alert(first_word)
-		if (first_letter == '#' || first_word == 'learn') {
+		if (first_letter ==='#' || first_word ==='learn') {
 
 			var stringa = texta[0].slice(1);
 			var splita = text_.split(" ");
@@ -499,7 +499,7 @@ const Dsahyog = (props) => {
 			splita.shift();
 			console.log(stringa)
 			console.log(splita);
-			if (first_word == 'learn') {
+			if (first_word ==='learn') {
 				key = texta[1]
 			}
 			else {
@@ -540,18 +540,18 @@ const Dsahyog = (props) => {
 
 		}
 		else if (intero.includes(first_word)) {
-			if (subject == true) {
+			if (subject ===true) {
 				if (pos_act != false) {
 					// alert(`yes sir i can do ${pos_act}`)
 					// alert(reply_yes_action[Math.floor(Math.random()*10)])
 					setTimeout(() => {
 						addchat(reply_yes_action[Math.floor(Math.random() * 10)], 'left')
 					}, 1000);
-					if (memory_get == true) {
+					if (memory_get ===true) {
 						setTimeout(() => {
 							var answer = '';
 							memory.map((cvalue) => {
-								if (cvalue.key == obj) {
+								if (cvalue.key ===obj) {
 									answer = cvalue.value
 
 								}
@@ -563,20 +563,20 @@ const Dsahyog = (props) => {
 
 				}
 				else {
-					if (text_ == 'how are you' || text_.includes('how are you')) {
+					if (text_ ==='how are you' || text_.includes('how are you')) {
 						// alert('i am fine sir.')
 						setTimeout(() => {
 							addchat(reply_greeting[Math.floor(Math.random() * 10)], 'left')
 						}, 1000)
 					}
-					else if (obj == 'ok' && pos_act == false && impos_act == false && greeting == false) {
+					else if (obj ==='ok' && pos_act ===false && impos_act ===false && greeting ===false) {
 						// alert('I am Sahyog. assistant of depressor.')
 						setTimeout(() => {
 							addchat('I am Sahyog. assistant of depressor.', 'left');
 						}, 1000)
 					}
 
-					else if (greeting == false) {
+					else if (greeting ===false) {
 						// alert(`Sorry sir but i am not designed for ${impos_act}--->${obj} ${impos_act} ${subject} ${first_word}`)
 
 						// alert(reply_no_action[Math.floor(Math.random()*10)]+`  #${impos_act}`)
@@ -595,7 +595,7 @@ const Dsahyog = (props) => {
 
 				}
 			}
-			else if (subject == 'user_itself') {
+			else if (subject ==='user_itself') {
 				// alert(reply_ability[Math.floor(Math.random()*10)])
 				setTimeout(() => {
 					addchat(reply_ability[Math.floor(Math.random() * 10)], 'left')
@@ -604,23 +604,23 @@ const Dsahyog = (props) => {
 			}
 
 			else {
-				if (info == 'depressor' || info == 'depressors') {
+				if (info ==='depressor' || info ==='depressors') {
 					// alert("Depressor is a social platform which connects people who are suffering from depression,stress,anxiety,tension,sucidial.We help people to comeback on the right track of life.")
 					setTimeout(() => {
 						addchat("Depressor is a social platform which connects people who are suffering from depression,stress,anxiety,tension,sucidial.We help people to comeback on the right track of life.", 'left')
 					}, 1000)
 				}
-				else if (info == 'relievers' || info == 'relievers') {
+				else if (info ==='relievers' || info ==='relievers') {
 					// alert('Relievers are the family memebers who will care you and act as a doctor to cure you mental health by giving love,happiness,hope,help')
 					setTimeout(() => {
 						addchat('Relievers are the family memebers who will care you and act as a doctor to cure you mental health by giving love,happiness,hope,help', 'left')
 					}, 1000)
 				}
-				else if (obj != 'ok' && unidentified_word == false) {
+				else if (obj != 'ok' && unidentified_word ===false) {
 					setTimeout(() => {
 						var answer = '';
 						memory.map((cvalue) => {
-							if (cvalue.key == obj) {
+							if (cvalue.key ===obj) {
 								answer = cvalue.value
 
 							}
@@ -629,7 +629,7 @@ const Dsahyog = (props) => {
 						addchat(`${obj} ${answer}`, 'left')
 					}, 1000)
 				}
-				else if (info == false) {
+				else if (info ===false) {
 					// alert('I yhink you should viit the depressor or you can do google search!')
 					setTimeout(() => {
 						console.log(obj + "--------->" + unidentified_word + memory)
@@ -642,7 +642,7 @@ const Dsahyog = (props) => {
 		}
 
 		else if (excl != false) {
-			if (exclamatory[excl] == 1) {
+			if (exclamatory[excl] ===1) {
 				// alert("congratulations sir!!!");
 				setTimeout(() => {
 					addchat("congratulations sir!!!", 'left')
@@ -657,7 +657,7 @@ const Dsahyog = (props) => {
 
 		}
 		else {
-			if (subject == true) {
+			if (subject ===true) {
 				if (pos_weight + neg_weight >= 0) {
 					// alert("Thanks sir!!!")
 					setTimeout(() => {
@@ -681,7 +681,7 @@ const Dsahyog = (props) => {
 					setTimeout(() => {
 						var index = Math.floor(Math.random() * 10)
 						// alert(index)
-						if (index == 9) {
+						if (index ===9) {
 							addchat(positive_vibe[index], 'left')
 							setTimeout(() => {
 								window.location.href = 'https://www.youtube.com/watch?v=j2QX6Vyj1jI'
@@ -703,11 +703,11 @@ const Dsahyog = (props) => {
 					}, 1000);
 
 					// alert(memory_get)
-					if (memory_get == true) {
+					if (memory_get ===true) {
 						setTimeout(() => {
 							var answer = '';
 							memory.map((cvalue) => {
-								if (cvalue.key == obj) {
+								if (cvalue.key ===obj) {
 									answer = cvalue.value
 
 								}
@@ -722,7 +722,7 @@ const Dsahyog = (props) => {
 		}
 
 
-		if (unidentified_word != false && info == false && unidentified_word != 'i') {
+		if (unidentified_word != false && info ===false && unidentified_word != 'i') {
 			setTimeout(() => {
 				addchat(`What is ${unidentified_word} sir?`, 'left');
 				addchat(`Please write #/learn ${unidentified_word} is a...... or you can ignore it..`, 'left')
@@ -771,7 +771,7 @@ const Dsahyog = (props) => {
 				{/*<p>{transcript}</p>*/}
 			</div>
 			{chat.map((cvalue) => {
-				if (cvalue.pos == 'left') {
+				if (cvalue.pos ==='left') {
 					return (<><span ref={myRef} id="sahyog_left_mess">{cvalue.mess}</span><br /><br /></>)
 				}
 				else {
@@ -789,7 +789,7 @@ const Dsahyog = (props) => {
 
 			}
 
-			{micstate == false ?
+			{micstate ===false ?
 				<button style={{ outline: 'none', border: 'none', boxShadow: '3px 5px 2px grey' }} onClick={() => setmicstate(!micstate)}>
 					<MicIcon onClick={SpeechRecognition.startListening} />
 				</button>

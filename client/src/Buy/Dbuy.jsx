@@ -287,7 +287,7 @@ const Dbuy = (props) => {
         </React.Fragment>
       ))}
     </div>
-    {state == true ? <Dbuyitemopen img={imga} type={typa} cost={costa} backo={goback} /> : <div>
+    {state === true ? <Dbuyitemopen img={imga} type={typa} cost={costa} backo={goback} /> : <div>
       <Carousel
         activeIndex={activeIndex}
         next={next}
@@ -312,10 +312,10 @@ const Dbuy = (props) => {
             <div className="mainContent">
               <div className="imageHolder">
                 {imageURL && <img src={imageURL} alt="Upload Preview" crossOrigin="anonymous" ref={imageRef} style={{ width: '200px', height: '200px' }} />}
-                {isLoading == true && imageURL ? <div className="loader" onClick={identify}>
+                {isLoading ===true && imageURL ? <div className="loader" onClick={identify}>
 
                 </div> :
-                  imageURL && isLoading == false ? <>
+                  imageURL && isLoading ===false ? <>
                     <div className="loaderimg" onClick={identify}>
 
                     </div>
@@ -324,7 +324,7 @@ const Dbuy = (props) => {
                     : null}
 
               </div>
-              {imageURL && isLoading == false ? <Button onClick={toggleDrawer('right', true)} style={{ backgroundColor: 'red', color: 'white' }}>Show Recommendations</Button> : null}
+              {imageURL && isLoading ===false ? <Button onClick={toggleDrawer('right', true)} style={{ backgroundColor: 'red', color: 'white' }}>Show Recommendations</Button> : null}
             </div>
 
           </div>

@@ -48,37 +48,37 @@ const Dsignin = () => {
 			const variables={name, phoneno, email, pass, conpass};
 			const res = await fetch(register, post(variables));
 
-			const data = await res.json();
+			// const data = await res.json();
 			if (res.status === 200) {
 				history.push("/login");
 			}
 		}
 	}
 
-	const validation = () => {
-		var email = document.getElementById('email').value;
-		var name = document.getElementById('name').value;
-		var password = document.getElementById('password').value;
-		var phone = document.getElementById('phone').value;
-		var cpass = document.getElementById('cpass').value;
-		if (name === "") {
-			alert("Please enter the name!!!");
-		}
-		else if (phone === "") {
-			alert("Please enter the phone no!!!");
-		}
+	// const validation = () => {
+	// 	var email = document.getElementById('email').value;
+	// 	var name = document.getElementById('name').value;
+	// 	var password = document.getElementById('password').value;
+	// 	var phone = document.getElementById('phone').value;
+	// 	var cpass = document.getElementById('cpass').value;
+	// 	if (name === "") {
+	// 		alert("Please enter the name!!!");
+	// 	}
+	// 	else if (phone === "") {
+	// 		alert("Please enter the phone no!!!");
+	// 	}
 
-		else if (password === "") {
-			alert("Please enter the password!!!");
-		}
-		else if (cpass === "") {
-			alert("Please confirm the password!!!");
-		}
-		else if (email === "") {
-			alert("Please enter the email!!!");
-		}
+	// 	else if (password === "") {
+	// 		alert("Please enter the password!!!");
+	// 	}
+	// 	else if (cpass === "") {
+	// 		alert("Please confirm the password!!!");
+	// 	}
+	// 	else if (email === "") {
+	// 		alert("Please enter the email!!!");
+	// 	}
 
-	}
+	// }
 	return (<>
 		<Dnavbar />
 

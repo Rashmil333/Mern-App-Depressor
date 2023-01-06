@@ -300,7 +300,7 @@ const Dchat=()=>{
 							
 				</div>:null
 				}
-				<div className={themee == "red" ? "Dchatredbackground" : themee == "green" ? "Dchatgreenbackground":themee=="yellow"? "Dchatbackgroundyellow":themee=="blue"?
+				<div className={themee ==="red" ? "Dchatredbackground" : themee ==="green" ? "Dchatgreenbackground":themee=="yellow"? "Dchatbackgroundyellow":themee=="blue"?
 				"Dchatbackgroundblue":themee=="dodgerblue"?"Dchatbackgroundskyblue" : null} style={{color:'white',height:'800px',color:'grey',}}>
 					<RadioButtonCheckedIcon style={{color:'green'}}/> <span style={{color:'green'}}>Sending message to</span> {member_name}
 					<Button id="text_white" style={{float:'right'}} onClick={deletechatsall}><DeleteIcon/></Button><br/><br/>

@@ -41,7 +41,7 @@ const Dcardstory = (props) => {
 		console.log('>>>>', data.Comments);
 		setCommentsData(data.Comments);
 		var COMMENTSCORE = 0;
-		data.Comments.map((item) => {
+		data.Comments.forEach((item) => {
 			const result = sentiment.analyze(item.comment);
 			COMMENTSCORE = COMMENTSCORE + result.positive.length - result.negative.length;
 		});
@@ -50,12 +50,12 @@ const Dcardstory = (props) => {
 	}
 
 
-	const Senti = (e) => {
-		setInputVal(e.target.value);
-		const result = sentiment.analyze(e.target.value);
-		console.log('>>>>', result);
+	// const Senti = (e) => {
+	// 	setInputVal(e.target.value);
+	// 	const result = sentiment.analyze(e.target.value);
+	// 	console.log('>>>>', result);
 
-	}
+	// }
 
 	// useEffect(() => {
 	// 	getAllComments();
@@ -110,7 +110,7 @@ const Dcardstory = (props) => {
 					{commentsData.map((cvalue, index) => {
 						return (<>
 							<div className='CommentDiv'>
-								<img src={cvalue.commentor_img} className='CommentImg' />
+								<img src={cvalue.commentor_img} className='CommentImg' alt='' />
 								<p className='CommentAuthor'>{cvalue.commentor}</p>
 								<p className='Comment'>{cvalue.comment}</p>
 								<p className='Datetext'>{cvalue.Date}</p>

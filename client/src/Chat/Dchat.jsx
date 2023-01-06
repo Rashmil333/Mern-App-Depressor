@@ -112,13 +112,13 @@ const Dchat = () => {
 
 		const res = await fetch(getuserData, get());
 		const data = await res.json();
-		if (data.mydepressor_status == 1) {
+		if (data.mydepressor_status ===1) {
 			console.log(data.mydepressor[0].email)
 
 
 			setdepressor(data.mydepressor);
 		}
-		if (data.myreliever_status == 1) {
+		if (data.myreliever_status ===1) {
 			var seta = new Set(data.myreliever);
 			var arra = Array.from(seta);
 			delete seta._id;
@@ -213,19 +213,19 @@ const Dchat = () => {
 	}
 
 	const changethemee = (id) => {
-		if (id == 'red') {
+		if (id ==='red') {
 			setthemee("red");
 		}
-		else if (id == 'green') {
+		else if (id ==='green') {
 			setthemee("green");
 		}
-		else if (id == 'yellow') {
+		else if (id ==='yellow') {
 			setthemee("yellow");
 		}
-		else if (id == 'dodgerblue') {
+		else if (id ==='dodgerblue') {
 			setthemee("dodgerblue");
 		}
-		else if (id == 'blue') {
+		else if (id ==='blue') {
 			setthemee("blue");
 		}
 
@@ -341,7 +341,7 @@ const Dchat = () => {
 	};
 
 	const filter = (id, type) => {
-		if (type == 1) {
+		if (type ===1) {
 			setdepressor((oldata) => {
 				return (oldata.filter((arrlem, index) => {
 					return (index != id)
@@ -364,34 +364,34 @@ const Dchat = () => {
 
 		<Button onClick={() => settoggler(toggler + 1)} style={{ color: 'white' }}><BuildIcon /></Button>
 		<div >
-			{toggler % 2 == 0 ?
+			{toggler % 2 ===0 ?
 				<div style={{ float: 'left', color: 'white', marginLeft: '2px', width: '300px' }}>
 					<span id="text_white" style={{ marginLeft: '10px' }}>Tools<hr style={{ width: '200px', height: '2px' }} /></span><br />
 					<span id="text_white"><Button id="text_white" onClick={() => settext(text + 1)}><MessageIcon id="text_white" />Messages</Button><hr style={{ width: '200px', height: '2px' }} /></span>
-					{text % 2 == 0 ? <ul style={{ listStyleType: 'none' }}>
+					{text % 2 ===0 ? <ul style={{ listStyleType: 'none' }}>
 						<li><Button id="text_white" onClick={() => setdepress(depress + 1)}><CategoryIcon id="text_white" />Depression</Button>
-							{depress % 2 == 0 ?
+							{depress % 2 ===0 ?
 								<ul>
 									{Ddatadepress.map((cvalue, index) => { return (<Dlibutton text={cvalue.text} show={sendchatforli} id={index} memberss={member} />); })}
 								</ul> : null
 							}
 						</li><hr style={{ width: '200px', height: '2px' }} />
 						<li><Button id="text_white" onClick={() => setstress(stress + 1)}><CategoryIcon id="text_white" />Stress</Button>
-							{stress % 2 == 0 ?
+							{stress % 2 ===0 ?
 								<ul>
 									{Ddatastress.map((cvalue, index) => { return (<Dlibutton text={cvalue.text} show={sendchatforli} id={index} memberss={member} />); })}
 								</ul> : null
 							}
 						</li><hr style={{ width: '200px', height: '2px' }} />
 						<li><Button id="text_white" onClick={() => settension(tension + 1)}><CategoryIcon id="text_white" />Tension</Button>
-							{tension % 2 == 0 ?
+							{tension % 2 ===0 ?
 								<ul>
 									{Ddatatension.map((cvalue, index) => { return (<Dlibutton text={cvalue.text} show={sendchatforli} id={index} memberss={member} />); })}
 								</ul> : null
 							}
 						</li><hr style={{ width: '200px', height: '2px' }} />
 						<li><Button id="text_white" onClick={() => setanxiety(anxiety + 1)}><CategoryIcon id="text_white" />Anxiety</Button>
-							{anxiety % 2 == 0 ?
+							{anxiety % 2 ===0 ?
 								<ul>
 									{Ddataanxiety.map((cvalue, index) => { return (<Dlibutton text={cvalue.text} show={sendchatforli} id={index} memberss={member} />); })}
 								</ul> : null
@@ -399,7 +399,7 @@ const Dchat = () => {
 						</li><hr style={{ width: '200px', height: '2px' }} />
 
 						<li><Button id="text_white" onClick={() => setsuicide(suicide + 1)}><CategoryIcon id="text_white" />Suicidial Thoughts</Button>
-							{suicide % 2 == 0 ?
+							{suicide % 2 ===0 ?
 								<ul>
 									{Ddatasucide.map((cvalue, index) => { return (<Dlibutton text={cvalue.text} show={sendchatforli} id={index} memberss={member} />); })}
 								</ul> : null
@@ -409,14 +409,14 @@ const Dchat = () => {
 					</ul> : null
 					}
 					<span id="text_white"><Button id="text_white" onClick={() => setemoji(emoji + 1)}><EmojiEmotionsIcon />Emojis</Button><hr style={{ width: '200px', height: '2px' }} /></span>
-					{emoji % 2 == 0 ? <div>{
+					{emoji % 2 ===0 ? <div>{
 						Demoji.map((cvalue, index) => {
 							return (<Dlibutton text={cvalue.text} show={sendchatforli} id={index} memberss={member} />)
 						})
 					}</div> : null
 					}
 					<span id="text_white"><Button id="text_white" onClick={() => settheme(theme + 1)}><BrushIcon />Themes</Button><hr style={{ width: '200px', height: '2px' }} /></span>
-					{theme % 2 == 0 ? <ul id="text_white" style={{ listStyleType: 'none' }}>
+					{theme % 2 ===0 ? <ul id="text_white" style={{ listStyleType: 'none' }}>
 						<li><Button style={{ color: 'dodgerblue' }} onClick={e => changethemee('dodgerblue')}><CheckBoxOutlineBlankIcon /></Button></li>
 						<li><Button style={{ color: 'blue' }} onClick={e => changethemee('blue')}><CheckBoxOutlineBlankIcon /></Button></li>
 						<li><Button style={{ color: 'red' }} onClick={e => changethemee('red')}><CheckBoxOutlineBlankIcon /></Button></li>
@@ -426,7 +426,7 @@ const Dchat = () => {
 					</ul> : null
 					}
 					<span id="text_white"><Button id="text_white" onClick={() => setfamily(family + 1)}><FaceIcon />Family Members</Button><hr style={{ width: '200px', height: '2px' }} /></span>
-					{family % 2 == 0 ? <ul id="text_white" style={{ listStyleType: 'none' }}>
+					{family % 2 ===0 ? <ul id="text_white" style={{ listStyleType: 'none' }}>
 						<p id="text_pink">Depressors</p><hr style={{ backgroundColor: 'white' }} />
 						<Dlifamilymembers name="Harry" />
 						{depressor.map((cvalue, index) => {
@@ -447,7 +447,7 @@ const Dchat = () => {
 			<div className={themee === "red" ? "Dchatredbackground" : themee === "green" ? "Dchatgreenbackground" : themee === "yellow" ? "Dchatbackgroundyellow" : themee === "blue" ?
 				"Dchatbackgroundblue" : themee === "dodgerblue" ? "Dchatbackgroundskyblue" : themee === "normal" ? "Dchatbackgroundnormal" : null} style={{ color: 'white', height: '800px', color: 'grey' }}>
 				<RadioButtonCheckedIcon style={{ color: 'green' }} /> <span style={{ color: 'green' }}>Sending message to</span> {member_name}
-				{live == "" ? <>
+				{live ==="" ? <>
 					<span></span>
 					<span id="text_white">Start by selecting family member...</span>
 					<img src="https://media1.giphy.com/media/QZVECOeNpquEqnxzi3/giphy.gif" style={{ width: '100px' }} alt='pic' />

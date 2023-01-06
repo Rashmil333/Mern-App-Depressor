@@ -83,7 +83,7 @@ const Dcart = () => {
 						</div>
 					</div>
 				</div><br />
-				{state == "one" ? <div style={{ marginLeft: '5px', marginRight: '5px' }} >
+				{state ==="one" ? <div style={{ marginLeft: '5px', marginRight: '5px' }} >
 					<Dcartitem img="https://cdn10.montecarlo.in/images/ProductImages/medium/2-kIf-113908-pA7.JPG" type="Monte carlo marron Tshirt" cost="1,270.00" />
 					<Dcartitem img="https://cdn10.montecarlo.in/images/ProductImages/medium/2-sUT-061747-pW2.JPG" type="Monte carlo Blue Tshirt" cost="975.00" />
 					{cart_item.map((cvalue, index) => {
@@ -91,18 +91,18 @@ const Dcart = () => {
 					})}
 
 
-				</div> : state == "two" ? <div style={{ border: '1px solid white', height: '150px', backgroundColor: '#2b0014', marginTop: '10px', textAlign: 'center', marginLeft: '5px', marginRight: '5px' }} className="container">
+				</div> : state ==="two" ? <div style={{ border: '1px solid white', height: '150px', backgroundColor: '#2b0014', marginTop: '10px', textAlign: 'center', marginLeft: '5px', marginRight: '5px' }} className="container">
 					<div className="row" >
 						<h1 style={{ marginTop: '5%', marginLeft: '10%' }} id="text_pink">0 Rs</h1>
 					</div>
 				</div> :
-					state == "three" ?
+					state ==="three" ?
 						<div style={{ border: '1px solid white', height: '150px', backgroundColor: '#2b0014', marginTop: '10px', textAlign: 'center', marginLeft: '5px', marginRight: '5px' }} className="container">
 							<div className="row">
 								<h1 style={{ marginTop: '5%' }} id="text_pink">No Gift Cards.</h1>
 							</div>
 						</div> :
-						state == "four" ? <>
+						state ==="four" ? <>
 							<div style={{ border: '1px solid white', width: '100%', backgroundColor: '#2b0014', marginTop: '10px', textAlign: 'center', marginLeft: '5px', marginRight: '5px' }}>
 
 								<img style={{ width: '150px', float: 'left' }} src="https://cdn10.montecarlo.in/images/ProductImages/large/1-oHk-121233-Dxc.JPG" />

@@ -54,14 +54,14 @@ const Dbuyitemopen=(props)=>{
 		var name=document.getElementById('name').value;
 		var phoneno=document.getElementById('phoneno').value;
 		var address=document.getElementById('Dcomment').value;
-		if(name==""){
+		if(name===""){
 		alert("Please enter the name!!!");
 		}
-		else if(phoneno==""){
+		else if(phoneno===""){
 		alert("Please enter the phone no!!!");
 		}
 
-		else if(address==""){
+		else if(address===""){
 		alert("Please enter the address!!!");
 		}
 		

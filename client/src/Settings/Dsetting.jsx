@@ -81,7 +81,7 @@ const Dsetting = () => {
 					<img src="https://images.unsplash.com/photo-1501770118606-b1d640526693?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c3VwcG9ydHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
 						style={{ width: '90%', height: '100%', marginTop: '20px', borderRadius: '10px', marginLeft: '5%' }} alt='pic' />
 				</div>
-				<h2 style={{ color: '#fdfeff', marginTop: '200px', fontWeight: 'bold', marginLeft: '10px', marginLeft: '40%' }}>Founders</h2>
+				<h2 style={{ color: '#fdfeff', marginTop: '200px', fontWeight: 'bold', marginLeft: '40%' }}>Founders</h2>
 				<br />
 
 

@@ -1,9 +1,6 @@
 import React,{useState} from 'react';
 import Button from '@material-ui/core/Button';
-import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
-import CardGiftcardIcon from '@material-ui/icons/CardGiftcard';
-import RestaurantIcon from '@material-ui/icons/Restaurant';
-import CallIcon from '@material-ui/icons/Call';
+
 const Dstoryphoto=(props)=>{
 
 	const [expand,setexpand]=useState(false);
@@ -18,7 +15,7 @@ const Dstoryphoto=(props)=>{
 
 	
 	return(<>
-				<div><img onClick={call} id={expand==true?"contributephotoexpand":"contributephoto"} src={props.img}/>
+				<div><img onClick={call} id={expand===true?"contributephotoexpand":"contributephoto"} src={props.img} alt=''/>
 				<b>{props.name}</b><br/>
 				<Button onClick={callstory}>{props.text}</Button>
 				
