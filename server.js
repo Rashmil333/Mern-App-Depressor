@@ -888,7 +888,7 @@ app.post("/login", async (req, res) => {
       }
       else {
         res.status(400);
-        res.send("sorry  email is invalid")
+        res.send({ error: "sorry  email is invalid" });
       }
     }
   }
